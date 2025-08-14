@@ -1,0 +1,1596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Let's Tour Kwahu</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      line-height: 1.6;
+       background: linear-gradient(135deg, rgba(38,70,83,0.85) 60%, rgba(56,142,60,0.80) 100%);
+  /* Deep forest green blend, slightly opaque */
+  min-height: 100vh;
+    }
+
+  header {
+  background: linear-gradient(90deg, rgba(38,70,83,0.95) 60%, rgba(56,142,60,0.90) 100%);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 24px rgba(38,70,83,0.12);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  z-index: 1000;
+  color: #ffe082;
+  border-bottom: 2px solid #f4a261;
+}
+
+header .logo img,
+.nav-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(38,70,83,0.10);
+  border: 2px solid #f4a261;
+  background: none;
+  transition: transform 0.2s;
+}
+
+    header .logo img:hover,
+.nav-logo:hover {
+  transform: scale(1.08) rotate(-6deg);
+  box-shadow: 0 6px 24px rgba(244,162,97,0.18);
+}
+    /* Section Headings */
+h2, h3.packages, h3, .guides-header-vertical span {
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+  font-size: 2.4rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #FFD700 40%, #ffe082 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1.2rem;
+  text-align: center;
+  border: 2px solid #FFD700;
+  border-radius: 12px;
+  box-shadow: 0 0 8px 1px #FFD700;
+  padding: 12px 0;
+}
+
+.hamburger {
+  font-size: 2rem;
+  color: #ffe082;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.hamburger:hover {
+  color: #f4a261;
+}
+    /* Section Separator Example */
+.section-separator {
+  width: 100%;
+  height: 40px;
+  background: url('data:image/svg+xml;utf8,<svg ...>') no-repeat center/cover;
+  margin-bottom: -2px;
+}
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    #google_translate_element select {
+  border-radius: 4px;
+  padding: 4px;
+  font-size: 14px;
+}
+
+   .nav-links a {
+  color: #ffe082;
+  position: relative;
+  padding: 0.5rem 1.2rem;
+  font-weight: 600;
+  font-size: 1.08rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+  border-radius: 8px;
+}
+
+.nav-links a:hover {
+  color: #f4a261;
+  background: rgba(255,224,130,0.08);
+}
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+  .nav-links a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #f4a261, #ffe082);
+  border-radius: 2px;
+  transition: width 0.3s;
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+}
+
+    .hero {
+      height: 100vh;
+      background: url('./bruku\ hiking.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      position: relative;
+        margin-top: 80px; /* Adjust this value to match your header height */
+    }
+    .hero-content {
+  background: rgba(0,0,0,0.5);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+}/* ...existing code... */
+
+/* Card & Section Styling */
+.hero-content,
+.guides-header-vertical span,
+.guides > div,
+.details,
+.slide-caption {
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(38,70,83,0.08);
+}
+
+.about-logo {
+  width: 100px;
+  height: 360px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 4px 16px rgba(38,70,83,0.12);
+  background: none;
+}
+
+.about-logo[src] {
+  background: transparent;
+}
+
+.logo img,
+.nav-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: none;
+  box-shadow: 0 2px 8px rgba(38,70,83,0.10);
+}
+
+.hero-slider {
+  width: 100vw;
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
+  margin-top: 60px;
+  background: #222;
+}
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 80vw;           /* Increased from 60vw to 80vw */
+  max-height: 520px;      /* Increased from 420px to 520px */
+  min-height: 260px;      /* Increased from 220px to 260px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slide {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0; top: 0;
+  transition: opacity 0.5s;
+}
+.slide.active {
+  display: block;
+  opacity: 1;
+  z-index: 1;
+}
+.slide img {
+  width: 100vw;
+  max-width: 100%;
+  height: 80vw;           /* Increased from 70vw to 80vw */
+  max-height: 520px;      /* Increased from 420px to 520px */
+  min-height: 260px;      /* Increased from 220px to 260px */
+  object-fit: cover;
+  border-radius: 0;
+  display: block;
+}
+.slide-caption {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.60);
+  color: #fff;
+  padding: 1.2rem 2rem;
+  border-radius: 12px;
+  text-align: center;
+  width: 90vw;
+  max-width: 420px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+}
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.2s;
+}
+
+.slide-caption h2 {
+  font-size: 2rem;
+}
+.slide-caption p {
+  font-size: 1.1rem;
+}
+.slider-arrow.left { left: 16px; }
+.slider-arrow.right { right: 16px; }
+.slider-arrow:hover { background: #f4a261; color: #fff; }
+
+
+
+    .btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+   background: linear-gradient(90deg, #f4a261 60%, #ffe082 100%);
+  color: #264653;
+  box-shadow: 0 2px 12px rgba(244,162,97,0.12);
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+  background: linear-gradient(90deg, #ffe082 60%, #f4a261 100%);
+  color: #fff;
+  box-shadow: 0 4px 24px rgba(244,162,97,0.18);
+}
+
+   .logo {
+  border-radius: 50%;
+  
+}
+    .two-col {
+      display: flex;
+      padding: 2rem;
+      align-items: center;
+    }
+    
+    .two-col img {
+      max-width: 30%;
+      flex: 1 1 300px;
+    }
+    .two-col .text {
+      flex: 1 1 300px;
+      padding: 1rem;
+    }
+
+    .packages {
+text-align: center;
+    }
+    .accordion {
+      padding: 2rem;
+    }
+
+   /* WhatsApp Floating Button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9999;
+  background: #25D366;
+  border-radius: 50%;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.2s, background 0.2s;
+}
+.whatsapp-float:hover {
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.18);
+  background: #128C7E;
+}
+.whatsapp-float img {
+  display: block;
+}
+
+/* Add to your existing CSS */
+
+/* Padding for hero section top in mobile view */
+@media (max-width: 600px) {
+  .hero {
+    padding-top: 70px !important; /* Ensures hero is not hidden behind header */
+  }
+}
+
+/* WhatsApp button ringing animation */
+@keyframes whatsapp-ring {
+  0% { transform: scale(1) rotate(0deg); }
+  10% { transform: scale(1.08) rotate(-8deg); }
+  20% { transform: scale(1.12) rotate(8deg); }
+  30% { transform: scale(1.08) rotate(-8deg); }
+  40% { transform: scale(1.12) rotate(8deg); }
+  50% { transform: scale(1.08) rotate(-8deg); }
+  60% { transform: scale(1.12) rotate(8deg); }
+  70% { transform: scale(1.08) rotate(-8deg); }
+  80% { transform: scale(1.12) rotate(8deg); }
+  90% { transform: scale(1.08) rotate(-8deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+.whatsapp-float {
+  animation: whatsapp-ring 1.8s infinite;
+}
+
+    /* ...existing code... */
+details {
+ margin-bottom: 1rem;
+  background: linear-gradient(90deg, #fff 60%, #fffbe6 100%);
+  color: #222;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  border: 1px solid #ffe082;
+  transition: box-shadow 0.3s, transform 0.3s, background 0.3s;
+}
+
+details summary {
+  cursor: pointer;
+  font-weight: bold;
+  outline: none;
+  color: #222;
+  background: none;
+  padding-left: 28px;
+  position: relative;
+  user-select: none;
+  list-style: none;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details summary::before {
+  content: '+';
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.3em;
+  color: #f4a261;
+  transition: transform 0.2s;
+}
+
+details:hover {
+  box-shadow: 0 8px 32px rgba(244,162,97,0.18);
+  transform: translateY(-4px) scale(1.02);
+  background: linear-gradient(90deg, #fffbe6 60%, #ffe082 100%);
+  cursor: pointer;
+}
+
+details[open] summary::before {
+  content: '-';
+  color: #e76f51;
+}
+/* ...existing code... */
+
+    .grid-images {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .grid-images img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .guides {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      padding: 2rem;
+      text-align: center;
+    }
+    .guides img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+/* ...existing code... */
+.guides-header-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.1rem;
+  margin-top: 0.1rem;
+  min-height: 40px;
+  background: none;
+}
+.guides-header-vertical span {
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+  font-size: 2.4rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #ffe082 40%, #f4a261 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  padding: 18px 10px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  text-align: center;
+  display: inline-block;
+}
+/* ...existing code... */
+
+    .video-testimonial {
+      padding: 2rem;
+      text-align: center;
+    }
+    footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 2rem;
+      background: #222;
+      color: #fff;
+    }
+    .footer-left a {
+      color: #f4a261;
+      display: block;
+      margin-bottom: 0.5rem;
+      text-decoration: none;
+    }
+    
+  .hamburger {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  display: none; /* Hide by default */
+  z-index: 1100;
+}
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: grey;
+        position: absolute;
+        right: 0;
+        top: 60px;
+        padding: 1rem;
+        width: 100px;
+      }
+  @media (max-width: 900px) {
+  .hamburger {
+    display: block; /* Show on mobile/tablet */
+  }
+}
+    }
+
+    @media (max-width: 600px) {
+  .slider-container, .slide img {
+    height: 60vw;           /* Increased from 48vw to 60vw */
+    min-height: 160px;      /* Increased from 140px to 160px */
+    max-height: 320px;      /* Increased from 220px to 320px */
+  }
+  .slide-caption {
+    padding: 0.7rem 0.7rem;
+    font-size: 0.9rem;
+    max-width: 98vw;
+  }
+  .slide-caption h2 {
+    font-size: 1.1rem;
+  }
+  .slide-caption p {
+    font-size: 0.9rem;
+  }
+  .slider-arrow {
+    width: 36px;
+    height: 36px;
+    font-size: 1.5rem;
+  }
+}
+
+/* Responsive header for mobile */
+@media (max-width: 600px) {
+  header {
+    padding: 0.7rem 1rem;
+  }
+  .nav-links a {
+    padding: 0.5rem 0.7rem;
+    font-size: 0.98rem;
+  }
+  header .logo img,
+  .nav-logo {
+    width: 38px;
+    height: 38px;
+  }
+  .guides-header-vertical span {
+    font-size: 1.3rem;
+    padding: 10px 6px;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    height: auto;
+    min-height: 60vh;
+    margin-top: 70px;
+    padding: 2rem 1rem;
+    background-position: center;
+  }
+  .hero-content {
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  .two-col {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  .two-col img,
+  .about-logo {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 1rem;
+  }
+  .two-col .text {
+    padding: 0.5rem;
+  }
+  .accordion {
+    padding: 1rem;
+  }
+  .guides {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1rem;
+    gap: 0.5rem;
+  }
+  .guides img {
+    width: 80px;
+    height: 80px;
+  }
+  .video-testimonial {
+    padding: 1rem;
+  }
+  footer {
+    flex-direction: column;
+    padding: 1rem;
+    text-align: left;
+  }
+  #footer-content {
+    padding: 0;
+  }
+  .whatsapp-float {
+    bottom: 16px;
+    right: 16px;
+    width: 48px;
+    height: 48px;
+    padding: 4px;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.5rem 0.5rem;
+  }
+  .nav-links {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100vw;
+    position: static;
+    background: none;
+    padding: 0.5rem 0;
+  }
+  .nav-links a {
+    padding: 0.7rem 0.5rem;
+    font-size: 1rem;
+    border-radius: 6px;
+  }
+  .hero {
+    padding: 1rem 0.5rem;
+    margin-top: 60px;
+    min-height: 40vh;
+  }
+  .hero-content {
+    padding: 0.5rem;
+    border-radius: 6px;
+  }
+  .about-logo {
+    width: 70px;
+    height: 70px;
+  }
+  .two-col {
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
+  .accordion {
+    padding: 0.5rem;
+  }
+  .guides {
+    grid-template-columns: 1fr;
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
+  .guides img {
+    width: 60px;
+    height: 60px;
+  }
+  .video-testimonial {
+    padding: 0.5rem;
+  }
+  footer {
+    padding: 0.5rem;
+    font-size: 0.95rem;
+  }
+  .whatsapp-float {
+    bottom: 8px;
+    right: 8px;
+    width: 40px;
+    height: 40px;
+    padding: 2px;
+  }
+  .slide-caption {
+    padding: 0.5rem 0.5rem;
+    font-size: 0.9rem;
+    max-width: 98vw;
+  }
+  .slide-caption h2 {
+    font-size: 1rem;
+  }
+  .slide-caption p {
+    font-size: 0.85rem;
+  }
+  .slider-arrow {
+    width: 28px;
+    height: 28px;
+    font-size: 1.2rem;
+  }
+  .grid-images img {
+    height: 90px;
+  }
+}
+
+/* Ensure all sections have enough top margin for fixed header */
+section,
+.accordion,
+.hero-slider {
+  margin-top: 80px;
+}
+
+/* Prevent content from hiding behind header on mobile */
+@media (max-width: 600px) {
+  section,
+  .accordion,
+  .hero-slider {
+    margin-top: 60px;
+  }
+}
+  details h4, details h3 {
+  color: #222 !important;
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: initial;
+  background-clip: initial;
+}
+  /* Increase font size for guide names and Meet Our Guides header on mobile */
+@media (max-width: 600px) {
+  .guides-header-vertical span {
+    font-size: 1.7rem;
+    padding: 14px 8px;
+  }
+  .guides h4 {
+    font-size: 1.15rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  .guides p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .slide-caption {
+    padding: 0.5rem 0.7rem;
+    font-size: 0.85rem;
+    max-width: 90vw;
+    border-radius: 8px;
+    width: 95vw;
+  }
+  .slide-caption h2 {
+    font-size: 1rem;
+    margin-bottom: 0.4em;
+  }
+  .slide-caption p {
+    font-size: 0.85rem;
+  }
+  .btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Guides: Make images bigger on mobile */
+@media (max-width: 600px) {
+  .guides img {
+    width: 110px !important;
+    height: 110px !important;
+  }
+  .guides-header-section {
+    margin-bottom: 0.2rem !important;
+    margin-top: 0.2rem !important;
+    min-height: 40px !important;
+  }
+}
+
+/* Guides: Default size for desktop */
+.guides img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Guides header spacing for desktop */
+.guides-header-section {
+  margin-bottom: 0.1rem;
+  margin-top: 0.1rem;
+  min-height: 40px;
+}
+
+/* Footer: Remove duplicate backgrounds and add overlay */
+footer {
+  background: #111 url('./kwahu greenry.jpg') center/cover no-repeat;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 0 32px 0 rgba(0,0,0,0.18);
+  overflow: hidden;
+}
+footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 17, 17, 0.65); /* Slight dark opacity */
+  z-index: 0;
+  pointer-events: none;
+}
+
+#footer-content {
+  position: relative;
+  z-index: 1;
+}
+  </style>
+
+</head>
+<body>
+  <!-- Navigation -->
+<header>
+  <div style="display: flex; align-items: center; gap: 10px;">
+    <!-- Logo -->
+    <div class="logo">
+      <img src="Ltk Logo.jpg" alt="Let's Tour Kwahu" class="nav-logo">
+    </div>
+    <!-- Google Translate Dropdown -->
+    <div id="google_translate_element"></div>
+  </div>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+  <nav class="nav-links">
+    <a href="#aboutus">About Us</a>
+    <a href="#packages">Packages</a>
+    <a href="#footer-content">Contact Us</a>
+  </nav>
+</header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="about">
+    <div class="hero-content">
+      <h2>Explore the Hidden Jewel of Ghana</h2>
+      <p>Reconnect with nature, tradition, and adventure in the heart of Kwahu.</p>
+      <button class="btn">Read More</button>
+    </div>
+  </section>
+
+  <!-- Two Column Section -->
+  <section class="two-col" id="aboutus">
+    <img src="./ltk.jpg" alt="Tour Image" class="about-logo" />
+<div class="text">
+      <h3>Why Kwahu ?</h3>
+      <p>With scenic mountains, cultural landmarks, and warm communities, Kwahu offers unmatched experiences for every nature and culture lover.</p>
+      <p>At Let’s Tour Kwahu, we offer an unforgettable blend of tradition, culture, and nature adventure — where every tour is a deep dive into the rich heritage of Kwahu. From seamless trip planning to immersive local experiences, we ensure every traveler feels the spirit of Ghana with comfort, authenticity, and ease.</p>
+    
+    </div>
+  </section>
+  <section class="hero-slider" id="about">
+  <div class="slider-container">
+    <div class="slide active">
+      <img src="./kwahuimage_1.png" alt="Bruku Hiking" />
+      <div class="slide-caption">
+        <p>Nature Adventure, Tradition, Culture in Kwahu.</p>
+        <button class="btn" onclick="scrollToPackages()">See Packages</button>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="./paragliding_kwahu.jpg" alt="Paragliding Adventure" />
+      <div class="slide-caption">
+        <h2>Soar Above Kwahu</h2>
+       <!-- <p>Soar above the Odweanoma mountains .</p>-->
+        <button class="btn" onclick="scrollToPackages()">See Packages</button>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="./Pottery_hero5.JPG" alt="Scenic Views" />
+      <div class="slide-caption">
+        <h2>Craft, Culture, Create</h2>
+       <!-- <p>Discover breathtaking views.</p>-->
+        <button class="btn" onclick="scrollToPackages()">See Packages</button>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="./cave_sam.jpg" alt="Scenic Views" />
+      <div class="slide-caption">
+        <h2>Explore Ancient Depths</h2>
+        <!--<p>Discover breathtaking views.</p>-->
+        <button class="btn" onclick="scrollToPackages()">See Packages</button>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="./bruku_views.jpg" alt="Scenic Views" />
+      <div class="slide-caption">
+        <h2>Sacred Peak Views</h2>
+       <!-- <p>Discover breathtaking views.</p>-->
+        <button class="btn" onclick="scrollToPackages()">See Packages</button>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="./PrayerMountain_hero3.jpg" alt="Scenic Views" />
+      <div class="slide-caption">
+        <h2>The Hidden View</h2>
+       <!-- <p>Discover breathtaking views and peaceful moments in Kwahu.</p>-->
+        <button class="btn" onclick="scrollToPackages()">See Packages</button>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="./stoneage_jump.jpg" alt="Scenic Views" />
+      <div class="slide-caption">
+        <h2>History, Views, Discover</h2>
+        <!--<p>Discover breathtaking views and peaceful moments in Kwahu.</p>-->
+        <button class="btn" onclick="scrollToPackages()">See Packages</button>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="./echo_scenic.JPG" alt="Scenic Views" />
+      <div class="slide-caption">
+        <h2>Hear Your Echo</h2>
+        <!--<p>Discover breathtaking views and peaceful moments in Kwahu.</p>-->
+        <button class="btn" onclick="scrollToPackages()">See Packages</button>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="./but_waterfall.jpg" alt="Scenic Views" />
+      <div class="slide-caption">
+        <h2>Majestic Waters Flow</h2>
+       <!-- <p>Discover breathtaking views and peaceful moments in Kwahu.</p>-->
+        <button class="btn" onclick="scrollToPackages()">See Packages</button>
+      </div>
+    </div>
+    <button class="slider-arrow left" onclick="changeSlide(-1)">&#10094;</button>
+    <button class="slider-arrow right" onclick="changeSlide(1)">&#10095;</button>
+  </div>
+</section>
+  <!-- Accordion Packages -->
+  <section class="accordion" id="packages">
+    <p><h3 class="packages">Our Packages</h3><br></p>
+    <details> 
+      <summary>Kwahu Escape (Privacy)</summary><br>
+      <h4>Includes: Sharable Accomodation | Breakfast,Lunch,Dinner | 7 Attractions | Night Life | Dedicated Tourguides | Transportation in Kwahu (Pickup and Drop off in Nkawkaw only)</h4><br>
+      <h4>Excluded: Transport from your location to Nkawkaw | Night life Drinks | Snacks | Tips to Guides etc</h4><br>
+      <p> we welcome you to a peaceful home away from home in the heart of Kwahu — a serene forest-view homestay where comfort, privacy, and cultural immersion meet.What’s more, our dedicated transport is always ready to take you on exciting tours, food runs, or evening hangouts — and bring you right back with ease. Meals are served just nearby at Kwame’s house eating area for cooking convenience, which includes a modern latrine facility. Whether you’re with friends or on your own, this is your base to explore Kwahu while feeling truly at home.
+  <ul>
+    <li>Private rooms with ensuite baths, A/C, and shared for friends</li>
+    <li>Peaceful forest view, located 1.5km (5-min drive) from town</li>
+    <li>Smoking-friendly, with an on-site caretaker </li>
+    <li>Dedicated transport for tours, Tourguide, and hangouts</li>
+    <li>Meals served nearby at Kwame’s house (with latrine access)</li>
+    <li>All guests stay together in one home — safe, social, and relaxing</li>
+  </ul></p><br>
+        <p>NOTE : After confirming booking with our itinerary planners , there will be more information shared on food menu and tour itinerary. We take keen interest in your preferences when it comes to food and your wishes. Everything will be shared with you after booking is confirmed. <br> Reserve your Travel Date through whatsapp ; <p>
+    <a href="https://wa.me/message/WT52LBO6RYBJE1" target="_blank" style="text-decoration: none; color: #25D366; font-weight: bold;">
+      📲 WhatsApp Us
+    </a>
+  </p> </p>
+
+      <!-- Table for Accordion Section -->
+<table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+     <tr style="background-color: #f2f2f2;">
+          <th style="padding: 10px; border: 1px solid #ddd;">Number of Tourists</th>
+          <th style="padding: 10px; border: 1px solid #ddd;">Included Transport ₵ </th>
+          <th style="padding: 10px; border: 1px solid #ddd;">Comment</th>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">1</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1,980</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1 saloon car </td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">2</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1,800</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1 saloon car </td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">3</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1,650</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1 saloon car </td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">4</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1,600</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1 saloon car </td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">5</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1,550</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1 saloon car </td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">6</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1,600</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">2 saloon car </td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">7</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1,600</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">2 saloon car </td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">8</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1,500</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1 bus</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">9</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1,500</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1 bus</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">10</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1,500</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1 bus</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">11</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1,500</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1 bus</td>
+        </tr>
+         </table>
+      <a href="https://maps.app.goo.gl/abc">GPS Address</a>
+      <div class="grid-images">
+        <img src="./bath_esther.jpg"><img src="./esther_bed.jpg"><img src="./house_privacy.jpg"><img src="./esther_Hall.jpg">
+      </div>
+    </details>
+    <details>
+      <summary>Kwahu Escape (Host Family)</summary><br>
+      <h4>Includes: Sharable Accomodation | Breakfast,Lunch,Dinner | 7 Attractions | Night Life | Dedicated Tourguides | Transportation in Kwahu (Pickup and Drop off in Nkawkaw only)</h4><br>
+      <h4>Excluded: Transport from your location to Nkawkaw | Night life Drinks | Snacks | Tips to Guides etc</h4><br>
+      <p> Our host family package is for everyone who enjoys making a family around the world, you get to experience more of community euphoria  — a serene community homestay where Kwame , founder of the tour company stays with his family , two kids and a dog. You can play with Syd(dog) if you want to and interact with everybody in the house to learn more about the culture. walking distance to the community bars mostly on friday to get familiar with each other and talk about Ghana a bit,share a beer if you're a fan and welcome you to KWAHU .
+  <ul>
+    <li>Private Sharable rooms with two baths one inside and another outside, one room have double bed and bunk bed , Only Fan available plus rooms are connected with single door</li>
+    <li>House is located in the town , where the community lives</li>
+    <li>No Smoking in house but bar is at the corner </li>
+    <li>Dedicated transport for tours, Tourguide, and hangouts</li>
+    <li>Meals served in dining area at homestay </li>
+    <li>All guests stay together in one home — safe, social, and relaxing</li>
+  </ul></p><br>
+        <p>NOTE : After confirming booking with our itinerary planners , there will be more information shared on food and tour itinerary. We take keen interest in your preferences when it comes to food and your wishes. Everything will be shared with you after booking is confirmed. <br>Reserve your travel date through whatsapp, Cheers <p>
+    <a href="https://wa.me/message/WT52LBO6RYBJE1" target="_blank" style="text-decoration: none; color: #25D366; font-weight: bold;">
+      📲 WhatsApp Us
+    </a>
+  </p>
+ </p>
+      <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+        <tr style="background-color: #f2f2f2;">
+          <th style="padding: 10px; border: 1px solid #ddd;">Number of Tourists</th>
+          <th style="padding: 10px; border: 1px solid #ddd;">Included Transport ₵ </th>
+          <th style="padding: 10px; border: 1px solid #ddd;">Comment</th>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">1</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1,780</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1 saloon car </td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">2</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1,600 </td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1 saloon car </td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">3</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1,500 </td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1 saloon car </td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">4</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1,450 </td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1 saloon car </td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">5</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1,400 </td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1 saloon car </td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">6</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1,400 </td>
+          <td style="padding: 10px; border: 1px solid #ddd;">2 saloon car </td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">7</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1,400 </td>
+          <td style="padding: 10px; border: 1px solid #ddd;">2 saloon car </td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">8</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1,300 </td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1 bus</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">9</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1,300 </td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1 bus</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">10</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1,300 </td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1 bus</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">11</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1,300 </td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1 bus</td>
+        </tr>
+      </table>
+      <a href="https://maps.app.goo.gl/def">GPS Address</a>
+      <div class="grid-images">
+        <img src="./bath_hostarea.jpg"><img src="./dorm_bed.jpg"><img src="./volunteer_house.jpg"><img src="./room_Volunteer.jpg">
+      </div>
+    </details>
+    <details>
+      <summary>Day Trips (Tailored Itinerary)</summary><br>
+      <h4>Includes: Four(4) Attractions | Entrance fees| Dedicated Tourguide | Transportation in Kwahu (Pickup and Drop off only)</h4><br>
+      <p>Embark on a captivating one-day journey through the heart of Kwahu, where adventure and culture meet! Your tour begins at the <b>Nkofieho Cave</b>, a mystical hideaway steeped in history, followed by the breathtaking <b>Echo Mountain</b>, where your voice dances back to you across the serene landscape. Next, step back in time at the <b>Stone Age Park</b>, exploring fascinating relics of our ancestors, and end your day marveling at the enchanting <b>Waterfall / Proverbs from Earth</b>, a hidden gem where nature speaks in soothing cascades. This unforgettable experience is crafted for those seeking wonder in every moment.<br> <b>Please note: any additional attraction requests will incur extra fees.</b></p>
+      <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+        <tr style="background-color: #f2f2f2;">
+          <th style="padding: 10px; border: 1px solid #ddd;">Number of Tourists</th>
+          <th style="padding: 10px; border: 1px solid #ddd;">Included Transport ₵ </th>
+          <th style="padding: 10px; border: 1px solid #ddd;">Excluded Transport ₵ </th>
+          <th style="padding: 10px; border: 1px solid #ddd;">Comment </th>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">1</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">800</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">450</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1 Saloon Car</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">2</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">950</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">600</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1 Saloon Car</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">3</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1,100</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">750</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1 Saloon Car</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">4</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1,250</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">900</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1 Saloon Car</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">5</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1,400</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1,100</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1 Saloon Car</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">6</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1,700</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1,250</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">2 Saloon Car</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">7</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1,850</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1,400</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">2 Saloon Car</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">8</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">2,000</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1,550</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">2 Saloon Car</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">9</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">2,800</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1,700</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1 Aircon Bus</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">10</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">2,950</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1,850</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1 Aircon Bus</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">11</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">3,200</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">2,000</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1 Aircon Bus</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">12</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">3,350</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">2,150</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1 Aircon Bus</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">13</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">3,500</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">2,300</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1 Aircon Bus</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">14</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">3,650</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">2,450</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1 Sprinter bus</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">15</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">3,800</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">2,600</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1 Sprinter bus</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">16</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">3,950</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">2,750</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1 Sprinter bus</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">17</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">4,100</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">2,900</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1 Sprinter bus</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">18</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">4,250</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">3,000</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1 Sprinter bus</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">19</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">4,400</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">3,150</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1 Sprinter bus</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">20</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">4,550</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">3,300</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1 Sprinter bus</td>
+        </tr>
+      </table>
+      <a href="https://maps.app.goo.gl/def">GPS Address</a>
+      <div class="grid-images">
+        <img src="cave_tolani.jpg"><img src="butuase-1.jpg"><img src="echo_scenic.JPG"><img src="stone_age.jpg">
+      </div>
+    </details>
+    <details>
+      <summary>Climbing & Paragliding</summary><br>
+      <h4>Includes: Dedicated Site Guide | Accommodation</h4><br>
+      <p> <b>CLIMBING :</b> Our climbing initiatives offer an unparalleled adventure at Asubone and Krobo, presenting diverse opportunities for both intensive bouldering and exhilarating sport climbing across Ghana's stunning landscapes. We've ensured a comprehensive setup, providing essential gear like crashpads and climbing shoes, 
+        along with expert local guides on-site to assist with navigation and technique, guaranteeing that climbers of all levels can immerse themselves fully in the experience; simply plan your visit, and we'll handle all necessary arrangements for an unforgettable ascent.</p><br>
+      <p><b>PARAGLIDING :</b> Experience the ultimate thrill of paragliding over Kwahu Odweanoma Mountain, where our seasoned tandem pilots ensure a safe and breathtaking journey, allowing you to soar high above Ghana's picturesque scenery and witness unparalleled panoramic views. For certified solo pilots,
+         we warmly invite you to bring your gear and join our vibrant community to fly our incredible thermals, promising an exceptional and challenging aerial adventure atop one of Ghana's most iconic peaks.</p>
+      <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+        <tr style="background-color: #f2f2f2;">
+          <th style="padding: 10px; border: 1px solid #ddd;">No. Climbers</th>
+          <th style="padding: 10px; border: 1px solid #ddd;">Location</th>
+          <th style="padding: 10px; border: 1px solid #ddd;">Rate</th>
+          <th style="padding: 10px; border: 1px solid #ddd;">Comment</th>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">1</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Asubone-Kwahu</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">200</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Camp Stay Experience</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">2</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Asubone-Kwahu</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">300</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Camp Stay Experience</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">3</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Asubone-Kwahu</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">400</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Camp Stay Experience</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">4</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Asubone-Kwahu</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">500</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Camp Stay Experience</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">5</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">700</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Camp Stay Experience</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">6</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">800</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Camp Stay Experience</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">7</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">900</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Camp Stay Experience</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">8</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1000</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Camp Stay Experience</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">9</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1100</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Camp Stay Experience</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">10</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1200</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Camp Stay Experience</td>
+        </tr>
+       
+      </table>
+      <a href="https://maps.app.goo.gl/def">GPS Address</a>
+      <div class="grid-images">
+        <img src="./paragliding_kwahu.jpg"><img src="./climbing1.jpg"><img src="./climbing3.jpg"><img src="./paragliding-2.jpg">
+      </div>
+    </details>
+    <details>
+      <summary>Camping Adventures</summary><br>
+      <h4>Includes: Tent Accommodation (Single & Sharable)|Hiking|Views Of Nkawkaw|Sunset|Hidden View|Burn Fire</h4>
+      <p>Immerse yourself in nature with our unforgettable mountain peak camping experience, offering breathtaking panoramic views overlooking the vibrant Nkawkaw town as the sun sets and rises majestically on the Kwahu Ridge. Spend your evenings gathered around crackling bonfires, sharing stories under a blanket of stars, and awaken to crisp morning air ready for an invigorating hike around the mountain peak, reconnecting with nature and creating lasting memories in a truly spectacular setting.</p>
+      <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+        <tr style="background-color: #f2f2f2;">
+          <th style="padding: 10px; border: 1px solid #ddd;">Tourists</th>
+          <th style="padding: 10px; border: 1px solid #ddd;">Location</th>
+          <th style="padding: 10px; border: 1px solid #ddd;">Single </th>
+          <th style="padding: 10px; border: 1px solid #ddd;">Sharable</th>
+          
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">5 Pax Min</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Odweanoma Mountain</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">500</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">400</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">5 Pax Min</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Prayer Mountain</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">400</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">300</td>
+        </tr>
+      </table>
+      <a href="https://maps.app.goo.gl/def">GPS Address</a>
+      <div class="grid-images">
+        <img src="./camp_odweanoma.jpg"><img src="./camp_praymountain.jpg"><img src="./Camp_odwviews.jpg"><img src="./Camp_hike.jpg">
+      </div>
+    </details>
+    <!--<details>
+      <summary>Climbing & Paragliding</summary><br>
+      <h4>Includes: Dedicated Site Guide | Accommodation</h4>
+      <p>Experience local art and cultural storytelling.</p>
+      <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+        <tr style="background-color: #f2f2f2;">
+          <th style="padding: 10px; border: 1px solid #ddd;">No. Climbers</th>
+          <th style="padding: 10px; border: 1px solid #ddd;">Location</th>
+          <th style="padding: 10px; border: 1px solid #ddd;">Rate</th>
+          <th style="padding: 10px; border: 1px solid #ddd;">Comment</th>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">1</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Asubone-Kwahu</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">200</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Camp Stay Experience</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">2</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Asubone-Kwahu</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">300</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Camp Stay Experience</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">3</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Asubone-Kwahu</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">400</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Camp Stay Experience</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">4</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Asubone-Kwahu</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">500</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Camp Stay Experience</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">5</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">700</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Camp Stay Experience</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">6</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">800</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Camp Stay Experience</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">7</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">900</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Camp Stay Experience</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">8</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1000</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Camp Stay Experience</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">9</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1100</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Camp Stay Experience</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">10</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">1200</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Camp Stay Experience</td>
+        </tr>
+       
+      </table>
+      <a href="https://maps.app.goo.gl/def">GPS Address</a>
+      <div class="grid-images">
+        <img src="paragliding-1.jpg"><img src="paragliding-2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+      </div>
+    </details>-->
+    <details>
+      <summary>Hotels And Homestays</summary><br>
+      <h4>Includes: Tent Accommodation (Single & Sharable)|Hiking|Views Of Nkawkaw|Sunset|Hidden View|Burn Fire</h4>
+      <p>When visiting Kwahu, your stay can be perfectly tailored to your preference, from opulent comfort to immersive cultural exchange. Indulge in unparalleled luxury at the renowned <b>RockCity Hotel</b>, or experience the regal hospitality of the Royal <b>Nyarkoaba Hotel</b>, each offering exquisite amenities and comfort. For those seeking a more curated stay, Tailored Experience <b>Bricks Court Hotel</b> provides unique settings designed for personalized comfort.</p>
+      <br>Alternatively, embrace our diverse <b>homestay</b> options, where you can enjoy the privacy of your own space or choose to live with a welcoming <b>host family</b>, providing an authentic opportunity to learn Ghanaian culture firsthand. Regardless of your choice, our accommodations promise unparalleled luxury, unique tailored experiences, utmost privacy, deep cultural immersion, and options to suit every budget, ensuring your visit to Kwahu is truly unforgettable.
+      <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+        <tr style="background-color: #f2f2f2;">
+          <th style="padding: 10px; border: 1px solid #ddd;">Hotel/Homestay Name</th>
+          <th style="padding: 10px; border: 1px solid #ddd;">GPS (Direction)</th>
+          <th style="padding:  10px; border: 1px solid #ddd;">Location </th>
+       
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">5 Pax Min</td>
+          <td style="padding: 10px; border: 1px solid #ddd;"><a href="https://maps.app.goo.gl/4Fy8JnC3wa6cfKyy8">GPS</a></td>
+          <td style="padding: 10px; border: 1px solid #ddd;">500</td>
+                  </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">5 Pax Min</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Prayer Mountain</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">400</td>
+                 </tr>
+      </table>
+    </details>
+    <details>
+      <summary>Car Rentals</summary><br>
+      <h4>Includes: Tent Accommodation (Single & Sharable)|Hiking|Views Of Nkawkaw|Sunset|Hidden View|Burn Fire</h4>
+      <p>Experience local art and cultural storytelling.</p>
+      <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+        <tr style="background-color: #f2f2f2;">
+          <th style="padding: 10px; border: 1px solid #ddd;">Car Rental Type</th>
+          <th style="padding: 10px; border: 1px solid #ddd;">Owner Name</th>
+          <th style="padding: 10px; border: 1px solid #ddd;">Contact</th>
+
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">5 Pax Min</td>
+          <td style="padding: 10px; border: 1px solid #ddd;"><a href="https://maps.app.goo.gl/4Fy8JnC3wa6cfKyy8">GPS</a></td>
+          <td style="padding: 10px; border: 1px solid #ddd;">500</td>
+                  </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">5 Pax Min</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Prayer Mountain</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">400</td>
+                 </tr>
+      </table>
+    </details>
+    <!-- Add more details as needed -->
+  </section>
+<section class="guides-header-section">
+  <div class="guides-header-vertical">
+    <span>Meet Our Guides</span>
+  </div>
+</section>
+  <!-- Tour Guides Section -->
+  <section class="guides">
+       <div>
+      <img src="victor.jpg" alt="Guide" />
+      <h4>Victor Somuah</h4>
+      <p>Certified Eco-Guide</p>
+    </div>
+    <div>
+      <img src="debs_guide.jpg" alt="Guide" />
+      <h4>Deborah Asante</h4>
+      <p>Heritage Specialist</p>
+    </div>
+    <div>
+      <img src="./solo.jpg" alt="Guide" />
+      <h4>Kwame Owusu</h4>
+      <p>Founder|TourGuide</p>
+    </div>
+    <div>
+      <img src="guide2.jpg" alt="Guide" />
+      <h4>Afia Asantewaa</h4>
+      <p>Heritage Specialist</p>
+    </div>
+    <!-- Add two more guides -->
+  </section>
+
+  <!-- Testimonial Section -->
+  <section class="video-testimonial">
+    <h3>What Our Guests Say</h3><br>
+   <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe 
+    src="https://www.youtube.com/embed/-QfRTiTKUJk" 
+    frameborder="0" 
+    allowfullscreen 
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+  </iframe>
+  </section>
+<section id="social-responsibility" style="background: url('school\ godies.jpg') center/cover no-repeat; padding: 100px 20px; color: white; text-align: center; position: relative;">
+  <div style="background-color: rgba(0, 0, 0, 0.5); padding: 60px 20px; border-radius: 12px; max-width: 800px; margin: auto;">
+    <h2 style="font-size: 2.2rem; margin-bottom: 20px;">Social Responsibility</h2>
+       <p style="font-size: 1.1rem; margin-bottom: 30px;">
+      At LTK Tours, we believe giving back strengthens our roots. When you book a tour , you automatically support girls empowerment through our initiative with MentorHer Ghana.
+    </p>
+    <a href="https://mentorherghana.org" target="_blank" style="display: inline-block; background-color: #ffc107; color: #000; padding: 12px 30px; border-radius: 30px; font-weight: bold; text-decoration: none;">
+      Visit Website
+    </a>
+  </div>
+</section>
+ <!-- Footer -->
+<footer style="background: #111 url('./kwahu\ greenry.jpg') center/cover no-repeat; color: white; padding: 40px 20px; text-align: center; position: relative; box-shadow: 0 0 32px 0 rgba(0,0,0,0.18);">
+  <div id="footer-content" style="max-width: 900px; margin: auto;">
+    <!-- Left Column: Contact Info -->
+    <div style="margin-bottom: 20px;">
+      <p><strong>Contact Us</strong></p>
+      <p>Email: <a href="mailto:ltktours@gmail.com" style="color: #ffc107;">letstourkwahu@gmail.com</a></p>
+      <p>Website: <a href="https://www.ltktours.com" style="color: #ffc107;">www.ltktours.com</a></p>
+      <p>Phone: <a href="tel:+233500000000" style="color: #ffc107;">+233 545748380</a></p>
+      <p>P.O Box: NJ 5, Nkawkaw</p>
+      <p><a href="https://wa.me/message/WT52LBO6RYBJE1" target="_blank" style="color: #25D366;">📱 WhatsApp Us</a></p>
+    </div>
+
+    <!-- Right Column: Google Map -->
+    <div style="margin-bottom: 20px;">
+      <iframe 
+        src="https://www.google.com/maps?q=Obomeng+Kwahu,+Ghana&output=embed"
+        width="100%" height="200" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy">
+      </iframe>
+    </div>
+
+    <!-- Social Media Links -->
+    <div style="margin-top: 20px;">
+      <p>Follow Us:</p>
+      <a href="https://www.instagram.com/letstourkwahu" target="_blank" style="margin: 0 10px; color: #ffc107;">Instagram</a> |
+      <a href="https://www.facebook.com/letstourkwahu" target="_blank" style="margin: 0 10px; color: #ffc107;">Facebook</a> |
+      <a href="https://www.tiktok.com/@letstourkwahu" target="_blank" style="margin: 0 10px; color: #ffc107;">TikTok</a> |
+      <a href="https://www.youtube.com/@letstourkwahu" target="_blank" style="margin: 0 10px; color: #ffc107;">YouTube</a>
+    </div>
+  </div>
+</footer>
+
+  
+  
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'en,fr,de,es,it,nl,pt,sw',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+  }
+</script>
+
+<script type="text/javascript" 
+  src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
+  <script>
+    function toggleMenu() {
+      const nav = document.querySelector('.nav-links');
+      nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+    }
+
+    let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+function showSlide(n) {
+  slides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === n);
+  });
+}
+function changeSlide(dir) {
+  currentSlide = (currentSlide + dir + slides.length) % slides.length;
+  showSlide(currentSlide);
+}
+function scrollToPackages() {
+  document.getElementById('packages').scrollIntoView({ behavior: 'smooth' });
+}
+// Auto-slide every 7 seconds (optional)
+setInterval(() => { changeSlide(1); }, 7000);
+showSlide(currentSlide);
+  </script>
+  <!-- WhatsApp Chat Button -->
+<a href="https://wa.me/233545748380" class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Chat" style="width:60px; height:60px;">
+</a>
+</body>
+</html>
