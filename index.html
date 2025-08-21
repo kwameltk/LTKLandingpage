@@ -159,6 +159,8 @@ h2, h3.packages, h3, .guides-header-vertical span {
   box-shadow: 0 4px 24px rgba(38,70,83,0.08);
 }
 
+
+
 .about-logo {
   width: 100px;
   height: 360px;
@@ -182,6 +184,117 @@ h2, h3.packages, h3, .guides-header-vertical span {
   object-fit: cover;
   background: none;
   box-shadow: 0 2px 8px rgba(38,70,83,0.10);
+}
+
+/* Add this to your CSS for the centered About Us section */
+.about-modern {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  background: rgba(38,70,83,0.07);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(38,70,83,0.08);
+  margin: 2rem auto;
+  max-width: 700px;
+}
+
+.about-content-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #111 !important;
+  text-align: center;
+  width: 100%;
+}
+
+.about-content-col h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: #111 !important;
+  /* Keep gradient if you want, or remove background for solid black */
+  -webkit-text-fill-color: #111 !important;
+  background: none;
+  box-shadow: none;
+  border: none;
+}
+
+.about-content-col p {
+  font-size: 1.15rem;
+  margin-bottom: 1rem;
+  color: #111 !important;
+}
+
+.about-content-col ul {
+  margin-bottom: 1.5rem;
+  padding-left: 1.2rem;
+  text-align: left;
+  display: inline-block;
+}
+
+.about-content-col ul li {
+  font-size: 1.08rem;
+  margin-bottom: 0.5rem;
+  color: #f4a261;
+  list-style: none;
+  position: relative;
+  padding-left: 1.5em;
+}
+
+.about-content-col ul li::before {
+  content: "➔";
+  position: absolute;
+  left: 0;
+  color: #FFD700;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.about-cta {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.about-cta .btn {
+  padding: 0.7rem 1.5rem;
+  font-size: 1.08rem;
+  border-radius: 8px;
+  font-weight: bold;
+  background: linear-gradient(90deg, #f4a261 60%, #ffe082 100%);
+  color: #264653;
+  box-shadow: 0 2px 12px rgba(244,162,97,0.12);
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  text-decoration: none;
+}
+
+.about-cta .btn:hover {
+  background: linear-gradient(90deg, #ffe082 60%, #f4a261 100%);
+  color: #fff;
+  box-shadow: 0 4px 24px rgba(244,162,97,0.18);
+}
+
+@media (max-width: 900px) {
+  .about-modern {
+    padding: 1.2rem 0.5rem;
+    max-width: 98vw;
+  }
+  .about-content-col h2 {
+    font-size: 1.3rem;
+    padding: 8px 0;
+  }
+  .about-content-col p, .about-content-col ul li {
+    font-size: 1rem;
+  }
+  .about-cta .btn {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
 }
 
 .hero-slider {
@@ -239,7 +352,7 @@ h2, h3.packages, h3, .guides-header-vertical span {
   max-width: 420px;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
 }
-.slider-arrow {
+slider-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -293,7 +406,8 @@ h2, h3.packages, h3, .guides-header-vertical span {
     .two-col {
       display: flex;
       padding: 2rem;
-      align-items: center;
+      align-items: stretch;
+      gap: 2rem;
     }
     
     .two-col img {
@@ -303,6 +417,9 @@ h2, h3.packages, h3, .guides-header-vertical span {
     .two-col .text {
       flex: 1 1 300px;
       padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .packages {
@@ -840,15 +957,30 @@ footer::before {
   </section>
 
   <!-- Two Column Section -->
-  <section class="two-col" id="aboutus">
-    <img src="./ltk.jpg" alt="Tour Image" class="about-logo" />
-<div class="text">
-      <h3>Why Kwahu ?</h3>
-      <p>With scenic mountains, cultural landmarks, and warm communities, Kwahu offers unmatched experiences for every nature and culture lover.</p>
-      <p>At Let’s Tour Kwahu, we offer an unforgettable blend of tradition, culture, and nature adventure — where every tour is a deep dive into the rich heritage of Kwahu. From seamless trip planning to immersive local experiences, we ensure every traveler feels the spirit of Ghana with comfort, authenticity, and ease.</p>
-    
+  <section class="about-modern" id="aboutus">
+    <div class="about-content-col">
+    <h2>About LTK Tours</h2>
+    <p>
+      <strong>LTK Tours </strong> popularly know as <strong></strong>Let's Tour Kwahu</strong> is your gateway to the heart of Ghana’s most breathtaking landscapes and vibrant culture. Nestled in the lush highlands, Kwahu is renowned for its panoramic mountain views, rich traditions, and welcoming communities.
+    </p>
+    <p>
+      Our organization is passionate about connecting travelers with authentic experiences,from hiking ancient trails and exploring mystical caves to joining local festivals and savoring Ghanaian cuisine. We believe every journey should be immersive, safe, and memorable.
+    </p>
+    <ul>
+      <li>Expert local guides for every adventure</li>
+      <li>Tailored packages for solo travelers, families, and groups</li>
+      <li>Support for community empowerment and sustainability</li>
+      <li>Seamless planning, transport, and hospitality</li>
+    </ul>
+    <div class="about-cta">
+      <a href="#packages" class="btn">Discover Our Packages</a>
+      <a href="#footer-content" class="btn" style="background: #25D366; color: #fff;">Contact Us</a>
     </div>
-  </section>
+    <a href="founder.html" class="btn" style="display:block; margin:2rem auto 0 auto; max-width:260px; background:#264653; color:#ffe082; text-align:center;">
+  Read More About the Founder
+</a>
+  </div>
+</section>
   <section class="hero-slider" id="about">
   <div class="slider-container">
     <div class="slide active">
@@ -1415,7 +1547,7 @@ footer::before {
       <div class="grid-images">
         <img src="paragliding-1.jpg"><img src="paragliding-2.jpg"><img src="img3.jpg"><img src="img4.jpg">
       </div>
-    </details>-->
+    </details>
     <details>
       <summary>Hotels And Homestays</summary><br>
       <h4>Includes: Tent Accommodation (Single & Sharable)|Hiking|Views Of Nkawkaw|Sunset|Hidden View|Burn Fire</h4>
@@ -1429,16 +1561,51 @@ footer::before {
        
         </tr>
         <tr>
-          <td style="padding: 10px; border: 1px solid #ddd;">5 Pax Min</td>
-          <td style="padding: 10px; border: 1px solid #ddd;"><a href="https://maps.app.goo.gl/4Fy8JnC3wa6cfKyy8">GPS</a></td>
-          <td style="padding: 10px; border: 1px solid #ddd;">500</td>
-                  </tr>
-        <tr>
-          <td style="padding: 10px; border: 1px solid #ddd;">5 Pax Min</td>
-          <td style="padding: 10px; border: 1px solid #ddd;">Prayer Mountain</td>
-          <td style="padding: 10px; border: 1px solid #ddd;">400</td>
-                 </tr>
-      </table>
+          <td style="padding: 10px; border: 1px solid #ddd;">ROCK CITY HOTEL</td>
+          <td style="padding: 10px; border: 1px solid #ddd;"><a href="https://maps.app.goo.gl/dc5E81Qmjd5pfg1w7">GPS Location</a></td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Kwahu Nkwatia (Contact <a href="tel:+233545748380" >0553387633</a>)</td>
+        </tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">Nyarkoa Ba Nyarko Royal Hotel</td>
+          <td style="padding: 10px; border: 1px solid #ddd;"><a href="https://maps.app.goo.gl/EE1qnhC3RMjcPuHVA">GPS Location</a></td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Obo Kwahu (Contact <a href="tel:+233545748380" >0244028981</a>)</td>
+        </tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">ELIZABETH AKYAA PLACE</td>
+          <td style="padding: 10px; border: 1px solid #ddd;"><a href="https://maps.app.goo.gl/f7AdMDqdUcTHGTdp7">GPS Location</a></td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Obomeng Kwahu (Contact <a href="tel:+233545748380" >0540355740</a>)</td>
+        </tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">THE BRICKS COURT</td>
+          <td style="padding: 10px; border: 1px solid #ddd;"><a href="https://maps.app.goo.gl/7UTRKNqjtrRef8WM9">GPS Location</a></td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Mpraeso Kwahu (Contact <a href="tel:+233545748380" >0257977965</a>)</td>
+        </tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">ESTHER HOMESTAY</td>
+          <td style="padding: 10px; border: 1px solid #ddd;"><a href="https://maps.app.goo.gl/9j9bhJabHPwYfjtq9">GPS Location</a></td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Obomeng Kwahu (Contact <a href="tel:+233545748380" >0545748380</a>)</td>
+        </tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">KOBOAS GUEST HOUSE</td>
+          <td style="padding: 10px; border: 1px solid #ddd;"><a href="https://maps.app.goo.gl/TshESm8AwKAGvVBq8">GPS Location</a></td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Obomeng Kwahu (Contact <a href="tel:+233545748380" >0244691243</a>)</td>
+        </tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">LTK HOST FAMILY STAY</td>
+          <td style="padding: 10px; border: 1px solid #ddd;"><a href="https://maps.app.goo.gl/E9bWnzSPKGHmGWsL9">GPS Location</a></td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Obomeng Kwahu (Contact <a href="tel:+233545748380" >0545748380</a>)</td>
+        </tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">WAGS HOTEL</td>
+          <td style="padding: 10px; border: 1px solid #ddd;"><a href="https://maps.app.goo.gl/nDHz8EERmEM7E6uL8">GPS Location</a></td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Obomeng Kwahu (Contact <a href="tel:+233545748380" >0244043060</a>)</td>
+        </tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">Rojo Hotel</td>
+          <td style="padding: 10px; border: 1px solid #ddd;"><a href="https://maps.app.goo.gl/nDHz8EERmEM7E6uL8">GPS Location</a></td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Nkawkaw Kwahu (Contact <a href="tel:+233545748380" >0244250593</a>)</td>
+        </tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">Akuramaa Hotel</td>
+          <td style="padding: 10px; border: 1px solid #ddd;"><a href="https://maps.app.goo.gl/j4GGkcT6NdDaTYpk8">GPS Location</a></td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Bepong Kwahu (Contact <a href="tel:+233545748380" >0594639355</a>)</td>
+        </tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">Freedom Hills Hotel</td>
+          <td style="padding: 10px; border: 1px solid #ddd;"><a href="https://maps.app.goo.gl/2wfrRPf6s4A92JW19">GPS Location</a></td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Nkwatia Kwahu (Contact <a href="tel:+233545748380" >0591231316</a>)</td>
+        </tr>
+          </table>
     </details>
     <details>
       <summary>Car Rentals</summary><br>
@@ -1452,7 +1619,7 @@ footer::before {
 
         </tr>
         <tr>
-          <td style="padding: 10px; border: 1px solid #ddd;">5 Pax Min</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Saloon Vehicle <a href="booking.html" >View More Details</a></td>
           <td style="padding: 10px; border: 1px solid #ddd;"><a href="https://maps.app.goo.gl/4Fy8JnC3wa6cfKyy8">GPS</a></td>
           <td style="padding: 10px; border: 1px solid #ddd;">500</td>
                   </tr>
@@ -1463,7 +1630,7 @@ footer::before {
                  </tr>
       </table>
     </details>
-    <!-- Add more details as needed -->
+    <!--Add more details as needed -->
   </section>
 <section class="guides-header-section">
   <div class="guides-header-vertical">
@@ -1592,5 +1759,42 @@ showSlide(currentSlide);
 <a href="https://wa.me/233545748380" class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Chat" style="width:60px; height:60px;">
 </a>
+<a href="https://forms.gle/xcnSwwYz8dNnLHaU9" class="booknow-float" title="Book Now">
+  Book Now
+</a>
+
+<style>
+/* Add this to your CSS block */
+.booknow-float {
+  position: fixed;
+  bottom: 30px;
+  right: 110px; /* Place next to WhatsApp button */
+  z-index: 9999;
+  background: linear-gradient(90deg, #f4a261 60%, #ffe082 100%);
+  color: #264653;
+  font-weight: bold;
+  font-size: 1.08rem;
+  border-radius: 30px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  padding: 14px 28px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.booknow-float:hover {
+  background: linear-gradient(90deg, #ffe082 60%, #f4a261 100%);
+  color: #fff;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.18);
+}
+
+/* Show only at breakpoint 1166px and above */
+@media (max-width: 1166px) {
+  .booknow-float {
+    display: none;
+  }
+}
+</style>
 </body>
 </html>

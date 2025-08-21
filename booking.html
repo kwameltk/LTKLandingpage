@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LTK Booking Confirmation</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, rgba(38,70,83,0.85) 60%, rgba(56,142,60,0.80) 100%);
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      color: #ffe082;
+      margin: 0;
+      padding: 0;
+    }
+    .company-header {
+      background: rgba(38,70,83,0.98);
+      color: #FFD700;
+      text-align: center;
+      padding: 1.2rem 0;
+      font-size: 2rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      border-bottom: 2px solid #f4a261;
+    }
+    .header {
+      background: linear-gradient(90deg, rgba(38,70,83,0.95) 60%, rgba(56,142,60,0.90) 100%);
+      padding: 2rem 1rem 1rem 1rem;
+      text-align: center;
+      border-bottom: 2px solid #f4a261;
+      box-shadow: 0 4px 24px rgba(38,70,83,0.12);
+    }
+    .header h2 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, #FFD700 40%, #ffe082 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      border-radius: 12px;
+      box-shadow: 0 0 8px 1px #FFD700;
+      padding: 12px 0;
+      border: 2px solid #FFD700;
+      display: inline-block;
+    }
+    .header .info {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: #ffe082;
+    }
+    .slider-section {
+      max-width: 600px;
+      margin: 2rem auto;
+      background: rgba(0,0,0,0.4);
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(38,70,83,0.18);
+      padding: 2rem 1rem;
+      position: relative;
+    }
+    .slider-container {
+      position: relative;
+      width: 100%;
+      height: 340px;
+      overflow: hidden;
+      border-radius: 12px;
+      background: #222;
+      box-shadow: 0 4px 24px rgba(38,70,83,0.12);
+      margin-bottom: 1rem;
+    }
+    .slide {
+      display: none;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0; top: 0;
+      transition: opacity 0.5s;
+    }
+    .slide.active {
+      display: block;
+      opacity: 1;
+      z-index: 1;
+    }
+    .slide img {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+      border-radius: 12px;
+      display: block;
+    }
+    .slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: #ffe082;
+      border: none;
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      font-size: 2rem;
+      cursor: pointer;
+      z-index: 2;
+      transition: background 0.2s;
+      outline: none;
+    }
+    .slider-arrow.left { left: 16px; }
+    .slider-arrow.right { right: 16px; }
+    .slider-arrow:hover { background: #f4a261; color: #fff; }
+    .slide-caption {
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.60);
+      color: #fff;
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      text-align: center;
+      width: 80%;
+      max-width: 420px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+      font-size: 1.1rem;
+    }
+    @media (max-width: 700px) {
+      .slider-section { padding: 1rem 0.5rem; }
+      .slider-container { height: 200px; }
+      .slide img { height: 200px; }
+      .slide-caption { font-size: 0.95rem; padding: 0.7rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+   <div class="header">
+    <h2>Vehicle Rentals Info</h2>
+    <div class="info">
+      Welcome, <span id="visitorName">Guest</span>!<br>
+      Your vehicle: <span id="vehicleType">Saloon Car</span>
+    </div>
+  </div>
+   <div class="company-header">
+    Lyft Transport Services
+  </div>
+  <section class="slider-section">
+    <div class="slider-container">
+      <div class="slide active">
+        <img src="kwahuimage_1.png" alt="Kwahu Nature" />
+        <div class="slide-caption">We Ensure Safety & Smooth Ride</div>
+      </div>
+      <div class="slide">
+        <img src="paragliding_kwahu.jpg" alt="Paragliding" />
+        <div class="slide-caption">Soar Above Odweanoma Mountain</div>
+      </div>
+      <div class="slide">
+        <img src="Pottery_hero5.JPG" alt="Pottery" />
+        <div class="slide-caption">Craft, Culture, Create</div>
+      </div>
+      <div class="slide">
+        <img src="but_waterfall.jpg" alt="Waterfall" />
+        <div class="slide-caption">Majestic Waters Flow</div>
+      </div>
+      <button class="slider-arrow left" onclick="changeSlide(-1)">&#10094;</button>
+      <button class="slider-arrow right" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+  </section>
+   <div class="company-header">
+   Righteous King Transport
+  </div>
+  <section class="slider-section">
+    <div class="slider-container">
+      <div class="slide active">
+        <img src="kwahuimage_1.png" alt="Kwahu Nature" />
+        <div class="slide-caption">Nature Adventure in Kwahu</div>
+      </div>
+      <div class="slide">
+        <img src="paragliding_kwahu.jpg" alt="Paragliding" />
+        <div class="slide-caption">Soar Above Odweanoma Mountain</div>
+      </div>
+      <div class="slide">
+        <img src="Pottery_hero5.JPG" alt="Pottery" />
+        <div class="slide-caption">Craft, Culture, Create</div>
+      </div>
+      <div class="slide">
+        <img src="but_waterfall.jpg" alt="Waterfall" />
+        <div class="slide-caption">Majestic Waters Flow</div>
+      </div>
+      <button class="slider-arrow left" onclick="changeSlide(-1)">&#10094;</button>
+      <button class="slider-arrow right" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+  </section>
+   <div class="company-header">
+    Let's Tour Kwahu Transport
+  </div>
+  <section class="slider-section">
+    <div class="slider-container">
+      <div class="slide active">
+        <img src="kwahuimage_1.png" alt="Kwahu Nature" />
+        <div class="slide-caption">Nature Adventure in Kwahu</div>
+      </div>
+      <div class="slide">
+        <img src="paragliding_kwahu.jpg" alt="Paragliding" />
+        <div class="slide-caption">Soar Above Odweanoma Mountain</div>
+      </div>
+      <div class="slide">
+        <img src="Pottery_hero5.JPG" alt="Pottery" />
+        <div class="slide-caption">Craft, Culture, Create</div>
+      </div>
+      <div class="slide">
+        <img src="but_waterfall.jpg" alt="Waterfall" />
+        <div class="slide-caption">Majestic Waters Flow</div>
+      </div>
+      <button class="slider-arrow left" onclick="changeSlide(-1)">&#10094;</button>
+      <button class="slider-arrow right" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+  </section>
+  <div style="text-align:center; margin: 2.5rem 0 1.5rem 0;">
+  <a href="index.html" style="
+    display: inline-block;
+    padding: 0.7rem 1.5rem;
+    font-size: 1.08rem;
+    border-radius: 8px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #f4a261 60%, #ffe082 100%);
+    color: #264653;
+    box-shadow: 0 2px 12px rgba(244,162,97,0.12);
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    text-decoration: none;
+  ">
+    ← Back to Home
+  </a>
+</div>
+  <script>
+    // Simple slider logic
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    function showSlide(n) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === n);
+      });
+    }
+    function changeSlide(dir) {
+      currentSlide = (currentSlide + dir + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+    // Optionally set visitor name and vehicle from query params
+    function setVisitorInfo() {
+      const params = new URLSearchParams(window.location.search);
+      const name = params.get('name');
+      const vehicle = params.get('vehicle');
+      if (name) document.getElementById('visitorName').textContent = name;
+      if (vehicle) document.getElementById('vehicleType').textContent = vehicle;
+    }
+    setVisitorInfo();
+    showSlide(currentSlide);
+  </script>
+</body>
+</html>
