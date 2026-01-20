@@ -70,16 +70,19 @@ h2, h3.packages, h3, .guides-header-vertical span {
 }
 
 .hamburger {
-  font-size: 2rem;
-  color: #ffe082;
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: color 0.2s;
-}
-.hamburger:hover {
-  color: #f4a261;
-}
+      font-size: 2rem;
+      color: #ffe082;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: color 0.2s;
+      display: none;
+      z-index: 1100;
+    }
+
+    .hamburger:hover {
+      color: #f4a261;
+    }
     /* Section Separator Example */
 .section-separator {
   width: 100%;
@@ -943,6 +946,7 @@ footer::before {
   <nav class="nav-links">
     <a href="#aboutus">About Us</a>
     <a href="#packages">Packages</a>
+    <a href="blog.html">Blog</a>
     <a href="#footer-content">Contact Us</a>
   </nav>
 </header>
@@ -1512,7 +1516,7 @@ footer::before {
           <td style="padding: 10px; border: 1px solid #ddd;">Camp Stay Experience</td>
         </tr>
         <tr>
-          <td style="padding: 10px; border: 1px solid #ddd;">5</td>
+                   <td style="padding: 10px; border: 1px solid #ddd;">5</td>
           <td style="padding: 10px; border: 1px solid #ddd;">700</td>
           <td style="padding: 10px; border: 1px solid #ddd;">Camp Stay Experience</td>
         </tr>
@@ -1547,7 +1551,7 @@ footer::before {
       <div class="grid-images">
         <img src="paragliding-1.jpg"><img src="paragliding-2.jpg"><img src="img3.jpg"><img src="img4.jpg">
       </div>
-    </details>-->
+    </details>
     <details>
       <summary>Hotels And Homestays</summary><br>
       <h4>Includes: Tent Accommodation (Single & Sharable)|Hiking|Views Of Nkawkaw|Sunset|Hidden View|Burn Fire</h4>

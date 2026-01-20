@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Discover travel tips, local stories, and adventure guides from Let's Tour Kwahu. Explore authentic experiences in Ghana's Kwahu highlands."
+    />
+    <meta
+      name="keywords"
+      content="Kwahu tours, Ghana travel blog, hiking guides, adventure tips, local culture"
+    />
+    <meta name="author" content="Let's Tour Kwahu" />
+    <meta
+      property="og:title"
+      content="LTK Tours Blog - Kwahu Travel Guide & Stories"
+    />
+    <meta
+      property="og:description"
+      content="Authentic travel stories and adventure guides from Kwahu, Ghana."
+    />
+    <meta property="og:image" content="./bruku\ hiking.jpg" />
+    <meta property="og:url" content="https://yourwebsite.com/blog.html" />
+    <title>Blog - Let's Tour Kwahu | Travel Tips & Adventure Stories</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+      body {
+        line-height: 1.6;
+        background: linear-gradient(
+          135deg,
+          rgba(38, 70, 83, 0.85) 60%,
+          rgba(56, 142, 60, 0.8) 100%
+        );
+        min-height: 100vh;
+      }
+
+      header {
+        background: linear-gradient(
+          90deg,
+          rgba(38, 70, 83, 0.95) 60%,
+          rgba(56, 142, 60, 0.9) 100%
+        );
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 24px rgba(38, 70, 83, 0.12);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        z-index: 1000;
+        color: #ffe082;
+        border-bottom: 2px solid #f4a261;
+      }
+
+      header .logo img,
+      .nav-logo {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 2px 8px rgba(38, 70, 83, 0.1);
+        border: 2px solid #f4a261;
+        background: none;
+        transition: transform 0.2s;
+      }
+
+      header .logo img:hover,
+      .nav-logo:hover {
+        transform: scale(1.08) rotate(-6deg);
+        box-shadow: 0 6px 24px rgba(244, 162, 97, 0.18);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .nav-links a {
+        color: #ffe082;
+        position: relative;
+        padding: 0.5rem 1.2rem;
+        font-weight: 600;
+        font-size: 1.08rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: color 0.3s;
+        border-radius: 8px;
+        text-decoration: none;
+      }
+
+      .nav-links a:hover {
+        color: #f4a261;
+        background: rgba(255, 224, 130, 0.08);
+      }
+
+      .nav-links a::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #f4a261, #ffe082);
+        border-radius: 2px;
+        transition: width 0.3s;
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .hamburger {
+        font-size: 2rem;
+        color: #ffe082;
+        background: none;
+        border: none;
+        cursor: pointer;
+        transition: color 0.2s;
+        display: none;
+      }
+
+      .hamburger:hover {
+        color: #f4a261;
+      }
+
+      /* Blog Hero Section */
+      .blog-hero {
+        height: 50vh;
+        background: linear-gradient(
+            rgba(38, 70, 83, 0.7),
+            rgba(38, 70, 83, 0.7)
+          ),
+          url("./bruku\ hiking.jpg") center/cover no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #fff;
+        margin-top: 80px;
+      }
+
+      .blog-hero h1 {
+        font-size: 3rem;
+        font-weight: bold;
+        letter-spacing: 2px;
+        text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        margin-bottom: 1rem;
+      }
+
+      .blog-hero p {
+        font-size: 1.3rem;
+        color: #ffe082;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Blog Container */
+      .blog-container {
+        max-width: 1000px;
+        margin: 3rem auto;
+        padding: 0 2rem;
+      }
+
+      /* Blog Grid */
+      .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-bottom: 4rem;
+      }
+
+      /* Blog Card */
+      .blog-card {
+        background: #fff;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 24px rgba(38, 70, 83, 0.12);
+        transition: transform 0.3s, box-shadow 0.3s;
+        cursor: pointer;
+      }
+
+      .blog-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 32px rgba(244, 162, 97, 0.18);
+      }
+
+      .blog-card-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .blog-card-content {
+        padding: 1.5rem;
+      }
+
+      .blog-card-category {
+        display: inline-block;
+        background: linear-gradient(90deg, #f4a261 60%, #ffe082 100%);
+        color: #264653;
+        padding: 0.4rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: bold;
+        margin-bottom: 0.8rem;
+      }
+
+      .blog-card-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #264653;
+        margin-bottom: 0.8rem;
+        letter-spacing: 0.5px;
+      }
+
+      .blog-card-excerpt {
+        color: #666;
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
+        line-height: 1.6;
+      }
+
+      .blog-card-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.85rem;
+        color: #999;
+        border-top: 1px solid #efe;
+        padding-top: 1rem;
+      }
+
+      .blog-card-readmore {
+        color: #f4a261;
+        font-weight: bold;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .blog-card-readmore:hover {
+        color: #ffe082;
+      }
+
+      /* Blog Post Page */
+      .blog-post-container {
+        max-width: 800px;
+        margin: 3rem auto;
+        padding: 0 2rem;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 24px rgba(38, 70, 83, 0.12);
+        overflow: hidden;
+      }
+
+      .blog-post-header {
+        background: linear-gradient(
+          90deg,
+          rgba(38, 70, 83, 0.95) 60%,
+          rgba(56, 142, 60, 0.9) 100%
+        );
+        color: #ffe082;
+        padding: 2rem;
+        text-align: center;
+      }
+
+      .blog-post-header h1 {
+        font-size: 2.2rem;
+        font-weight: bold;
+        letter-spacing: 1px;
+        margin-bottom: 1rem;
+      }
+
+      .blog-post-meta {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        font-size: 0.95rem;
+        color: #ffe082;
+        flex-wrap: wrap;
+      }
+
+      .blog-post-meta span {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .blog-post-body {
+        padding: 2rem;
+        color: #333;
+        line-height: 1.8;
+      }
+
+      .blog-post-body h2 {
+        font-size: 1.8rem;
+        color: #264653;
+        margin: 2rem 0 1rem 0;
+        letter-spacing: 0.5px;
+        border-bottom: 3px solid #ffe082;
+        padding-bottom: 0.5rem;
+      }
+
+      .blog-post-body h3 {
+        font-size: 1.4rem;
+        color: #38465c;
+        margin: 1.5rem 0 0.8rem 0;
+        letter-spacing: 0.5px;
+      }
+
+      .blog-post-body p {
+        margin-bottom: 1.2rem;
+        font-size: 1.05rem;
+      }
+
+      .blog-post-body ul,
+      .blog-post-body ol {
+        margin: 1.5rem 0 1.5rem 2rem;
+        line-height: 1.8;
+      }
+
+      .blog-post-body li {
+        margin-bottom: 0.8rem;
+        color: #333;
+      }
+
+      .blog-post-body strong {
+        color: #264653;
+        font-weight: bold;
+      }
+
+      /* Featured Image Container */
+      .blog-featured-image {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        display: block;
+        margin-bottom: 2rem;
+      }
+
+      /* Three Column Image Gallery */
+      .blog-gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin: 2rem 0;
+        padding: 2rem 0;
+        border-top: 2px solid #ffe082;
+        border-bottom: 2px solid #ffe082;
+      }
+
+      .gallery-image {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(38, 70, 83, 0.12);
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .gallery-image:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 24px rgba(244, 162, 97, 0.18);
+      }
+
+      /* Blog Post Tags */
+      .blog-tags {
+        margin: 2rem 0;
+        padding: 1.5rem;
+        background: rgba(255, 224, 130, 0.1);
+        border-radius: 8px;
+      }
+
+      .blog-tags h4 {
+        color: #264653;
+        margin-bottom: 0.8rem;
+        font-weight: bold;
+      }
+
+      .tag {
+        display: inline-block;
+        background: linear-gradient(90deg, #f4a261 60%, #ffe082 100%);
+        color: #264653;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        margin: 0.4rem;
+        font-size: 0.9rem;
+        font-weight: bold;
+        text-decoration: none;
+        transition: transform 0.2s;
+      }
+
+      .tag:hover {
+        transform: scale(1.05);
+      }
+
+      /* CTA Section */
+      .blog-cta {
+        background: linear-gradient(
+          90deg,
+          rgba(38, 70, 83, 0.95) 60%,
+          rgba(56, 142, 60, 0.9) 100%
+        );
+        color: #ffe082;
+        padding: 2rem;
+        text-align: center;
+        border-radius: 8px;
+        margin: 2rem 0;
+      }
+
+      .blog-cta h3 {
+        color: #ffe082;
+        margin-bottom: 1rem;
+        letter-spacing: 1px;
+      }
+
+      .blog-cta p {
+        margin-bottom: 1.5rem;
+        font-size: 1.05rem;
+      }
+
+      .blog-cta .btn {
+        background: linear-gradient(90deg, #f4a261 60%, #ffe082 100%);
+        color: #264653;
+        padding: 0.7rem 1.5rem;
+        border: none;
+        border-radius: 8px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.2s;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 1rem;
+      }
+
+      .blog-cta .btn:hover {
+        background: linear-gradient(90deg, #ffe082 60%, #f4a261 100%);
+        color: #fff;
+        transform: scale(1.05);
+      }
+
+      /* Author Box */
+      .author-box {
+        background: rgba(255, 224, 130, 0.08);
+        padding: 1.5rem;
+        border-left: 4px solid #f4a261;
+        border-radius: 8px;
+        margin: 2rem 0;
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      .author-avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #f4a261;
+      }
+
+      .author-info h4 {
+        color: #264653;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+      }
+
+      .author-info p {
+        color: #666;
+        font-size: 0.95rem;
+      }
+
+      /* Footer */
+      footer {
+        background: #111 url("./kwahu\ greenry.jpg") center/cover no-repeat;
+        color: white;
+        padding: 40px 20px;
+        text-align: center;
+        position: relative;
+        box-shadow: 0 0 32px 0 rgba(0, 0, 0, 0.18);
+        overflow: hidden;
+        margin-top: 4rem;
+      }
+
+      footer::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(17, 17, 17, 0.65);
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      #footer-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* WhatsApp Button */
+      .whatsapp-float {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 9999;
+        background: #25d366;
+        border-radius: 50%;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        padding: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: box-shadow 0.2s, background 0.2s;
+      }
+
+      .whatsapp-float:hover {
+        box-shadow: 0 8px 32px rgba(31, 38, 135, 0.18);
+        background: #128c7e;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 900px) {
+        .blog-hero h1 {
+          font-size: 2rem;
+        }
+
+        .blog-hero p {
+          font-size: 1rem;
+        }
+
+        .blog-container {
+          padding: 0 1rem;
+        }
+
+        .blog-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .blog-featured-image {
+          height: 300px;
+        }
+
+        .blog-gallery {
+          grid-template-columns: 1fr;
+        }
+
+        .author-box {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 768px) {
+        header {
+          padding: 0.7rem 1rem;
+        }
+
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          background: grey;
+          position: absolute;
+          right: 0;
+          top: 60px;
+          padding: 1rem;
+          width: 100px;
+        }
+
+        .hamburger {
+          display: block;
+        }
+
+        .blog-hero {
+          height: 40vh;
+          margin-top: 60px;
+        }
+
+        .blog-post-body {
+          padding: 1.5rem;
+        }
+
+        .blog-gallery {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1rem;
+        }
+
+        .gallery-image {
+          height: 180px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        header {
+          padding: 0.5rem 0.5rem;
+        }
+
+        .blog-hero {
+          height: 35vh;
+          margin-top: 50px;
+        }
+
+        .blog-hero h1 {
+          font-size: 1.5rem;
+        }
+
+        .blog-hero p {
+          font-size: 0.9rem;
+        }
+
+        .blog-container {
+          padding: 0 0.5rem;
+        }
+
+        .blog-card {
+          margin-bottom: 1rem;
+        }
+
+        .blog-post-container {
+          border-radius: 0;
+        }
+
+        .blog-post-header h1 {
+          font-size: 1.5rem;
+        }
+
+        .blog-post-meta {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+
+        .blog-post-body h2 {
+          font-size: 1.4rem;
+        }
+
+        .blog-post-body h3 {
+          font-size: 1.1rem;
+        }
+
+        .blog-post-body {
+          padding: 1rem;
+        }
+
+        .blog-gallery {
+          grid-template-columns: 1fr;
+          gap: 0.8rem;
+        }
+
+        .gallery-image {
+          height: 150px;
+        }
+
+        .blog-featured-image {
+          height: 200px;
+        }
+
+        .author-box {
+          padding: 1rem;
+        }
+
+        .author-avatar {
+          width: 60px;
+          height: 60px;
+        }
+
+        .whatsapp-float {
+          bottom: 8px;
+          right: 8px;
+          width: 40px;
+          height: 40px;
+          padding: 2px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <header>
+      <div style="display: flex; align-items: center; gap: 10px">
+        <div class="logo">
+          <img src="Ltk Logo.jpg" alt="Let's Tour Kwahu" class="nav-logo" />
+        </div>
+        <div id="google_translate_element"></div>
+      </div>
+      <div class="hamburger" onclick="toggleMenu()">☰</div>
+      <nav class="nav-links">
+        <a href="index.html#aboutus">About Us</a>
+        <a href="index.html#packages">Packages</a>
+        <a href="blog.html">Blog</a>
+        <a href="index.html#footer-content">Contact Us</a>
+      </nav>
+    </header>
+
+    <!-- Blog Hero Section -->
+    <section class="blog-hero">
+      <div>
+        <h1>LTK Tours Blog</h1>
+        <p>Stories, Tips & Adventures from Kwahu</p>
+      </div>
+    </section>
+
+    <!-- Blog Container -->
+    <div class="blog-container">
+      <!-- Blog Grid - Main Blog Listing Page -->
+      <div id="blogGrid" class="blog-grid">
+        <!-- Blog cards will be generated here by JavaScript -->
+      </div>
+
+      <!-- Blog Post View (Hidden by default) -->
+      <div id="blogPostView" class="blog-post-container" style="display: none">
+        <div class="blog-post-header">
+          <h1 id="postTitle"></h1>
+          <div class="blog-post-meta">
+            <span>📅 <span id="postDate"></span></span>
+            <span>✍️ <span id="postAuthor"></span></span>
+            <span>⏱️ <span id="postReadTime"></span></span>
+          </div>
+        </div>
+
+        <div class="blog-post-body">
+          <img
+            id="featuredImage"
+            class="blog-featured-image"
+            alt="Featured Image"
+          />
+
+          <div id="postContent"></div>
+
+          <!-- Gallery Section -->
+          <div class="blog-gallery">
+            <img
+              id="galleryImage1"
+              class="gallery-image"
+              alt="Gallery Image 1"
+            />
+            <img
+              id="galleryImage2"
+              class="gallery-image"
+              alt="Gallery Image 2"
+            />
+            <img
+              id="galleryImage3"
+              class="gallery-image"
+              alt="Gallery Image 3"
+            />
+          </div>
+
+          <!-- Author Box -->
+          <div class="author-box">
+            <img id="authorAvatar" class="author-avatar" alt="Author" />
+            <div class="author-info">
+              <h4 id="authorName"></h4>
+              <p id="authorBio"></p>
+            </div>
+          </div>
+
+          <!-- CTA Section -->
+          <div class="blog-cta">
+            <h3>Ready for Your Kwahu Adventure?</h3>
+            <p>
+              Explore our packages and start planning your unforgettable journey
+              today.
+            </p>
+            <a href="index.html#packages" class="btn">View Our Packages</a>
+          </div>
+
+          <!-- Tags -->
+          <div class="blog-tags">
+            <h4>Tags</h4>
+            <div id="postTags"></div>
+          </div>
+
+          <button
+            onclick="backToBlogList()"
+            class="btn"
+            style="background: #264653; color: #ffe082; margin-top: 2rem"
+          >
+            ← Back to Blog
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div id="footer-content">
+        <p>&copy; 2026 Let's Tour Kwahu. All rights reserved.</p>
+        <p>Discover authentic experiences in the heart of Ghana.</p>
+      </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a
+      href="https://wa.me/233545748380"
+      class="whatsapp-float"
+      target="_blank"
+      title="Chat with us on WhatsApp"
+    >
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+        alt="WhatsApp Chat"
+        style="width: 60px; height: 60px"
+      />
+    </a>
+
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          {
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          },
+          "google_translate_element"
+        );
+      }
+
+      function toggleMenu() {
+        const navLinks = document.querySelector(".nav-links");
+        navLinks.style.display =
+          navLinks.style.display === "flex" ? "none" : "flex";
+      }
+
+      // Blog Posts Data
+      const blogPosts = [
+        {
+          id: 1,
+          title: "Kwahu : The Hidden Jewelry of Ghana",
+          excerpt:
+            "Discover the breathtaking views, hidden attractions , culture and tradition. Learn what to pack, best times to visit, and insider tips from our expert guides.",
+          category: "Nature & Tourism",
+          author: "Kwame Owusu Bright",
+          authorBio:
+            "Kwame is an experienced eco-tour guide with over 10 years of expertise in Kwahu's landscape and trails.",
+          authorAvatar: "./kwame+headshot.png",
+          date: "January 20, 2026",
+          readTime: "8 min read",
+          image: "./kwahu_hiddenjewery.png",
+          featuredImage: "./kwahu_hiddenjewery.png",
+          galleryImages: [
+            "./bruku_kwahu.jpg",
+            "./kwahu_paragliding.jpg",
+            "./Kwahu_Climbing.png",
+          ],
+          content: `
+          <h2>Kwahu: The Hidden Jewelry of Ghana</h2>
+          <p> Some places announce themselves loudly. Others reveal their value slowly, to those willing to listen, walk gently, and stay curious. Kwahu belongs to the latter. Resting along the Eastern escarpment of Ghana, Kwahu is not simply a destination. It is a living archive of nature, tradition, and ancestral wisdom.
+
+For centuries, Kwahu has existed in quiet confidence, shaped by mountains, guarded by forests, and guided by customs older than written history. Its beauty does not compete for attention. It waits to be discovered.</p>
+          
+          <h3>A Landscape That Tells Stories</h3>
+          <p>Kwahu’s land is dramatic, not by excess, but by intention. Rolling hills open into deep valleys. Forest paths lead to waterfalls hidden behind layers of green. Stone formations stand where time has passed but meaning remains.
+
+Beneath the surface lies an underground world of caves, once used for refuge during times of conflict and for spiritual reflection. These caves are not just geological features. They are chapters of history carved into the earth, holding stories of survival, strategy, and silence.
+
+Above ground, the land continues to speak. Sacred rivers are protected by taboos. Forests are preserved through tradition. The environment is not conquered. It is respected.</p>
+          <h3>Tradition That Still Lives</h3>
+          <p>What sets Kwahu apart is not only what exists, but what continues to be practiced. Here, tradition is not staged. It is lived.
+
+Ancestral stools guide leadership and governance, reminding chiefs that authority is stewardship, not ownership. Libation is poured not as ceremony for display, but as communication with ancestors who are believed to remain present and watchful.
+
+Sacred days allow the land to rest. Festivals are moments of renewal, not entertainment alone. Storytelling passes knowledge where books never reached. These customs form the invisible structure that holds Kwahu together.</p>
+         
+<h3>Spiritual Balance Between People and Land</h3>
+          <p>In Kwahu, the spiritual and physical worlds are not separate. Caves, rivers, hills, and forests are all believed to carry presence. This belief has shaped how the land is treated, long before environmental protection became policy.
+
+Taboos are not restrictions without reason. They are systems of care, ensuring balance between human activity and nature. Through them, Kwahu has preserved spaces that remain untouched, authentic, and powerful.</p>
+         
+<h3>An Experience for Those Who Seek Meaning</h3>
+          <p>Kwahu does not offer hurried sightseeing. It offers encounters. A guided hike becomes a lesson in history. A visit to a cave becomes a moment of reflection. A conversation with an elder becomes a bridge between generations.
+
+For travelers who love tradition, nature, and culture, Kwahu offers something increasingly rare. Authenticity without performance. Beauty without noise. Depth without explanation forced upon you.</p>
+          
+<h3>Why Kwahu Must Be Seen</h3>
+          <p>Kwahu is a hidden jewelry not because it is unknown, but because its value cannot be rushed. It reveals itself through time, respect, and curiosity.
+
+In a world drawn to the obvious, Kwahu stands as a reminder that some of Ghana’s greatest treasures are found where culture is still intact, nature is still honored, and history is still spoken aloud.
+
+To visit Kwahu is not just to travel. It is to reconnect with how land, people, and spirit can exist in harmony.
+
+And for those willing to look beyond the surface, Kwahu remains one of Ghana’s most meaningful places to discover.</p>
+          
+          <h3>What to Pack</h3>
+          <ul>
+            <li>Sturdy hiking boots with good ankle support</li>
+            <li>Lightweight, breathable clothing in layers</li>
+            <li>A rain jacket (weather can change quickly)</li>
+            <li>Plenty of water (at least 2 liters)</li>
+            <li>Energy snacks: nuts, dried fruit, and energy bars</li>
+            <li>Sun protection: sunscreen, hat, and sunglasses</li>
+            <li>Camera or smartphone for capturing memories</li>
+          </ul>
+          
+          <h3>Best Times to Visit</h3>
+          <p> Kwahu is a year round ready community , The dry season (November to March) offers the clearest views and most stable weather conditions although the hammatan is impactful sometimes. However, the rainy season (May to October) transforms the landscape into lush green vistas, making it equally stunning but more challenging when going on a hike.</p>
+          
+          <h3>Safety Tips</h3>
+          <ul>
+            <li>Always hire a local guide for your safety</li>
+            <li>Start early in the morning to maximize daylight</li>
+                        <li>Stay hydrated throughout the journey</li>
+            <li>Respect the local environment and communities</li>
+          </ul>
+        `,
+          tags: ["Hiking", "Adventure", "Kwahu", "Nature Weekend Escape"],
+        },
+
+        {
+          id: 2,
+          title: "Bruku Peak: A Hiker's Guide to Kwahu's Most Iconic Trail",
+          excerpt:
+            "Discover the breathtaking views and hidden trails of Bruku Peak. Learn what to pack, best times to visit, and insider tips from our expert guides.",
+          category: "Hiking",
+          author: "Kwame Owusu Bright",
+          authorBio:
+            "Kwame is an experienced eco-tour guide with over 10 years of expertise in Kwahu's landscape and trails.",
+          authorAvatar: "kwame.jpg",
+          date: "January 15, 2026",
+          readTime: "8 min read",
+          image: "./bruku\ hiking.jpg",
+          featuredImage: "./bruku\ hiking.jpg",
+          galleryImages: [
+            "./bruku\ views.jpg",
+            "./bruku_views.jpg",
+            "./bruku\ hiking.jpg",
+          ],
+          content: `
+          <h2>Getting Started with Bruku Peak</h2>
+          <p><strong>Bruku Peak</strong> stands at 2,067 meters above sea level and is one of the most accessible mountain peaks in Ghana. Whether you're a seasoned hiker or just beginning your adventure journey, this comprehensive guide will help you make the most of your experience.</p>
+          
+          <h3>Why Bruku Peak?</h3>
+          <p>The Bruku Peak hiking experience offers more than just scenic views. Hikers encounter rich biodiversity, including unique flora and fauna found only in the Kwahu highlands. The journey itself is a cultural immersion, as you pass through local communities and learn about their way of life.</p>
+          
+          <h3>What to Pack</h3>
+          <ul>
+            <li>Sturdy hiking boots with good ankle support</li>
+            <li>Lightweight, breathable clothing in layers</li>
+            <li>A rain jacket (weather can change quickly)</li>
+            <li>Plenty of water (at least 2 liters)</li>
+            <li>Energy snacks: nuts, dried fruit, and energy bars</li>
+            <li>Sun protection: sunscreen, hat, and sunglasses</li>
+            <li>A small first-aid kit</li>
+            <li>Camera or smartphone for capturing memories</li>
+          </ul>
+          
+          <h3>Best Times to Visit</h3>
+          <p>The dry season (November to March) offers the clearest views and most stable weather conditions. However, the rainy season (May to October) transforms the landscape into lush green vistas, making it equally stunning but more challenging.</p>
+          
+          <h3>Safety Tips</h3>
+          <ul>
+            <li>Always hire a local guide for your safety</li>
+            <li>Start early in the morning to maximize daylight</li>
+            <li>Inform someone of your hiking plans</li>
+            <li>Stay hydrated throughout the journey</li>
+            <li>Respect the local environment and communities</li>
+          </ul>
+          
+          <h2>The Bruku Experience</h2>
+          <p>Reaching the summit of Bruku Peak is an unforgettable experience. On clear days, you can see panoramic views extending for miles. The sense of accomplishment mixed with the natural beauty creates memories that last a lifetime.</p>
+        `,
+          tags: ["Hiking", "Adventure", "Kwahu", "Nature"],
+        },
+
+        {
+          id: 3,
+          title: "Paragliding Over Kwahu: An Adrenaline Junkie's Paradise",
+          excerpt:
+            "Take to the skies and experience Kwahu from a breathtaking new perspective. We explore the thrills and safety of paragliding in our highlands.",
+          category: "Adventure Sports",
+          author: "Adventure Team",
+          authorBio:
+            "Our Adventure Team specializes in extreme sports and outdoor activities across Ghana.",
+          authorAvatar: "team.jpg",
+          date: "January 10, 2026",
+          readTime: "6 min read",
+          image: "./paragliding_kwahu.jpg",
+          featuredImage: "./paragliding_kwahu.jpg",
+          galleryImages: [
+            "./paragliding_kwahu.jpg",
+            "./bruku_views.jpg",
+            "./PrayerMountain_hero3.jpg",
+          ],
+          content: `
+          <h2>Soar Above Kwahu</h2>
+          <p>Kwahu has become a paragliding hotspot in West Africa, attracting adventurers from around the world. The unique geographical features and consistent thermal conditions make it an ideal destination for both beginners and experienced paragliders.</p>
+          
+          <h3>Why Kwahu for Paragliding?</h3>
+          <p>The mountainous terrain creates natural thermals that keep paragliders airborne longer. The 360-degree views of forests, valleys, and distant landscapes create an unmatched sense of freedom.</p>
+          
+          <h3>Safety First</h3>
+          <ul>
+            <li>Always use certified instructors</li>
+            <li>Wear proper safety equipment</li>
+            <li>Check weather conditions thoroughly</li>
+            <li>Start with tandem flights if you're a beginner</li>
+            <li>Ensure all equipment is regularly maintained</li>
+          </ul>
+          
+          <h2>The Paragliding Season</h2>
+          <p>December to March offers the most stable flying conditions. During these months, thermals are strong and consistent, making it the peak paragliding season in Kwahu.</p>
+        `,
+          tags: ["Paragliding", "Adventure", "Extreme Sports", "Thrills"],
+        },
+        {
+          id: 4,
+          title: "Hidden Caves of Kwahu: History, Mystery & Adventure",
+          excerpt:
+            "Explore the ancient caves scattered throughout Kwahu highlands. Learn about their historical significance and the adventures that await inside.",
+          category: "Exploration",
+          author: "Cultural Guide",
+          authorBio:
+            "Our Cultural Guides are experts in Kwahu's rich history and local traditions.",
+          authorAvatar: "guide.jpg",
+          date: "January 5, 2026",
+          readTime: "10 min read",
+          image: "./cave_sam.jpg",
+          featuredImage: "./cave_sam.jpg",
+          galleryImages: [
+            "./cave_sam.jpg",
+            "./bruku\ hiking.jpg",
+            "./Pottery_hero5.JPG",
+          ],
+          content: `
+          <h2>Discovering Kwahu's Subterranean Wonders</h2>
+          <p>The Kwahu highlands are home to several fascinating caves that hold both historical and cultural significance. These natural wonders offer a glimpse into the region's past and present.</p>
+          
+          <h3>Notable Caves</h3>
+          <ul>
+            <li><strong>Sam's Cave:</strong> The largest and most accessible cave, featuring impressive stalactites and a clear underground stream</li>
+            <li><strong>Prayer Mountain Caves:</strong> Sacred caves used for spiritual practices and rituals</li>
+            <li><strong>Hidden Valley Caves:</strong> Remote caves requiring moderate climbing experience</li>
+          </ul>
+          
+          <h3>What to Expect</h3>
+          <p>Cave exploration combines adventure with education. You'll navigate narrow passages, descend into caverns, and learn about geological formations that took millions of years to create.</p>
+          
+          <h3>Cave Exploration Safety</h3>
+          <ul>
+            <li>Always wear a helmet with a headlamp</li>
+            <li>Never explore caves alone</li>
+            <li>Wear proper footwear with good grip</li>
+            <li>Listen carefully to your guide's instructions</li>
+            <li>Bring extra batteries for your light source</li>
+          </ul>
+          
+          <h2>Cultural Significance</h2>
+          <p>For local communities, these caves are more than tourist attractions—they are sacred spaces with deep spiritual meanings passed down through generations.</p>
+        `,
+          tags: ["Caves", "Exploration", "History", "Culture"],
+        },
+      ];
+
+      // Display blog grid
+      function displayBlogGrid() {
+        const blogGrid = document.getElementById("blogGrid");
+        blogGrid.innerHTML = blogPosts
+          .map(
+            (post) => `
+        <div class="blog-card" onclick="viewPost(${post.id})">
+          <img src="${post.image}" alt="${post.title}" class="blog-card-image" />
+          <div class="blog-card-content">
+            <span class="blog-card-category">${post.category}</span>
+            <h3 class="blog-card-title">${post.title}</h3>
+            <p class="blog-card-excerpt">${post.excerpt}</p>
+            <div class="blog-card-meta">
+              <span>${post.date}</span>
+              <a href="javascript:void(0)" class="blog-card-readmore">Read More →</a>
+            </div>
+          </div>
+        </div>
+      `
+          )
+          .join("");
+      }
+
+      // View individual post
+      function viewPost(postId) {
+        const post = blogPosts.find((p) => p.id === postId);
+        if (!post) return;
+
+        document.getElementById("blogGrid").style.display = "none";
+        document.getElementById("blogPostView").style.display = "block";
+
+        document.getElementById("postTitle").textContent = post.title;
+        document.getElementById("postDate").textContent = post.date;
+        document.getElementById("postAuthor").textContent = post.author;
+        document.getElementById("postReadTime").textContent = post.readTime;
+        document.getElementById("featuredImage").src = post.featuredImage;
+        document.getElementById("postContent").innerHTML = post.content;
+
+        document.getElementById("galleryImage1").src = post.galleryImages[0];
+        document.getElementById("galleryImage2").src = post.galleryImages[1];
+        document.getElementById("galleryImage3").src = post.galleryImages[2];
+
+        document.getElementById("authorName").textContent = post.author;
+        document.getElementById("authorBio").textContent = post.authorBio;
+        document.getElementById("authorAvatar").src = post.authorAvatar;
+
+        document.getElementById("postTags").innerHTML = post.tags
+          .map((tag) => `<a href="javascript:void(0)" class="tag">${tag}</a>`)
+          .join("");
+
+        window.scrollTo(0, 0);
+      }
+
+      // Back to blog list
+      function backToBlogList() {
+        document.getElementById("blogGrid").style.display = "grid";
+        document.getElementById("blogPostView").style.display = "none";
+        window.scrollTo(0, 0);
+      }
+
+      // Initialize blog grid on page load
+      window.addEventListener("DOMContentLoaded", displayBlogGrid);
+    </script>
+
+    <script
+      type="text/javascript"
+      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    ></script>
+  </body>
+</html>
