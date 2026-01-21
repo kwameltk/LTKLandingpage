@@ -1083,37 +1083,13 @@ And for those willing to look beyond the surface, Kwahu remains one of Ghana’s
           .join("");
       }
 
-      // Update meta tags for social sharing
-      function updateMetaTags(post) {
-        // Get the current domain
-        const domain = window.location.origin;
-        const postUrl = `${domain}/blog.html?post=${post.slug}`;
-
-        // Update or create meta tags
-        updateMetaTag("og:title", post.title);
-        updateMetaTag("og:description", post.excerpt);
-        updateMetaTag("og:image", `${domain}/${post.featuredImage}`);
-        updateMetaTag("og:url", postUrl);
-        updateMetaTag("og:type", "article");
-        
-        updateMetaTag("twitter:title", post.title);
-        updateMetaTag("twitter:description", post.excerpt);
-        updateMetaTag("twitter:image", `${domain}/${post.featuredImage}`);
-        updateMetaTag("twitter:card", "summary_large_image");
-
-        updateMetaTag("description", post.excerpt);
-
-        // Update page title for SEO
-        document.title = `${post.title} | LTK Tours Blog - Kwahu Travel Guide`;
-      }
-
       // Helper function to update or create meta tags
       function updateMetaTag(property, content) {
         let tag = document.querySelector(`meta[property="${property}"], meta[name="${property}"]`);
         
         if (!tag) {
           tag = document.createElement("meta");
-          if (property.startsWith("og:") || property === "twitter:card") {
+          if (property.startsWith("og:") || property.startsWith("twitter:") || property === "twitter:card") {
             tag.setAttribute("property", property);
           } else {
             tag.setAttribute("name", property);
@@ -1122,6 +1098,45 @@ And for those willing to look beyond the surface, Kwahu remains one of Ghana’s
         }
         
         tag.setAttribute("content", content);
+      }
+
+      // Update meta tags for social sharing
+      function updateMetaTags(post) {
+        // Get the full domain URL
+        const domain = window.location.origin;
+        const postUrl = `${domain}/blog.html?post=${post.slug}`;
+        
+        // Convert relative image path to absolute URL
+        const absoluteImageUrl = post.featuredImage.startsWith('http') 
+          ? post.featuredImage 
+          : `${domain}/${post.featuredImage}`;
+
+        // Update Open Graph tags
+        updateMetaTag("og:title", post.title);
+        updateMetaTag("og:description", post.excerpt);
+        updateMetaTag("og:image", absoluteImageUrl);
+        updateMetaTag("og:image:width", "1200");
+        updateMetaTag("og:image:height", "630");
+        updateMetaTag("og:url", postUrl);
+        updateMetaTag("og:type", "article");
+        
+        // Update Twitter tags
+        updateMetaTag("twitter:title", post.title);
+        updateMetaTag("twitter:description", post.excerpt);
+        updateMetaTag("twitter:image", absoluteImageUrl);
+        updateMetaTag("twitter:card", "summary_large_image");
+
+        // Update standard description
+        updateMetaTag("description", post.excerpt);
+
+        // Update page title for SEO
+        document.title = `${post.title} | LTK Tours Blog`;
+        
+        console.log("Meta tags updated:", {
+          title: post.title,
+          image: absoluteImageUrl,
+          url: postUrl
+        });
       }
 
       // View individual post
