@@ -1079,6 +1079,47 @@ And for those willing to look beyond the surface, Kwahu remains one of Ghana’s
           .join("");
       }
 
+      // Update meta tags for social sharing
+      function updateMetaTags(post) {
+        // Get the current domain
+        const domain = window.location.origin;
+        const postUrl = `${domain}/blog.html?post=${post.slug}`;
+
+        // Update or create meta tags
+        updateMetaTag("og:title", post.title);
+        updateMetaTag("og:description", post.excerpt);
+        updateMetaTag("og:image", `${domain}/${post.featuredImage}`);
+        updateMetaTag("og:url", postUrl);
+        updateMetaTag("og:type", "article");
+        
+        updateMetaTag("twitter:title", post.title);
+        updateMetaTag("twitter:description", post.excerpt);
+        updateMetaTag("twitter:image", `${domain}/${post.featuredImage}`);
+        updateMetaTag("twitter:card", "summary_large_image");
+
+        updateMetaTag("description", post.excerpt);
+
+        // Update page title for SEO
+        document.title = `${post.title} | LTK Tours Blog - Kwahu Travel Guide`;
+      }
+
+      // Helper function to update or create meta tags
+      function updateMetaTag(property, content) {
+        let tag = document.querySelector(`meta[property="${property}"], meta[name="${property}"]`);
+        
+        if (!tag) {
+          tag = document.createElement("meta");
+          if (property.startsWith("og:") || property === "twitter:card") {
+            tag.setAttribute("property", property);
+          } else {
+            tag.setAttribute("name", property);
+          }
+          document.head.appendChild(tag);
+        }
+        
+        tag.setAttribute("content", content);
+      }
+
       // View individual post
       function viewPost(postId) {
         const post = blogPosts.find((p) => p.id === postId);
@@ -1086,6 +1127,9 @@ And for those willing to look beyond the surface, Kwahu remains one of Ghana’s
 
         // Update URL without page reload
         window.history.pushState({ postId }, post.title, `blog.html?post=${post.slug}`);
+
+        // Update meta tags for sharing
+        updateMetaTags(post);
 
         document.getElementById("blogGrid").style.display = "none";
         document.getElementById("blogPostView").style.display = "block";
@@ -1123,6 +1167,15 @@ And for those willing to look beyond the surface, Kwahu remains one of Ghana’s
       // Back to blog list
       function backToBlogList() {
         window.history.pushState(null, "Blog", "blog.html");
+        
+        // Reset meta tags to default blog page
+        updateMetaTag("og:title", "LTK Tours Blog - Kwahu Travel Guide & Stories");
+        updateMetaTag("og:description", "Discover travel tips, local stories, and adventure guides from Let's Tour Kwahu. Explore authentic experiences in Ghana's Kwahu highlands.");
+        updateMetaTag("og:image", window.location.origin + "/bruku\ hiking.jpg");
+        updateMetaTag("description", "Discover travel tips, local stories, and adventure guides from Let's Tour Kwahu.");
+        
+        document.title = "Blog - Let's Tour Kwahu | Travel Tips & Adventure Stories";
+        
         document.getElementById("blogGrid").style.display = "grid";
         document.getElementById("blogPostView").style.display = "none";
         window.scrollTo(0, 0);
