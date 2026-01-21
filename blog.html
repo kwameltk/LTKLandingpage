@@ -639,7 +639,7 @@
           font-size: 1.4rem;
         }
 
-        .blog-post-body h3 {
+        .blog-post_body h3 {
           font-size: 1.1rem;
         }
 
@@ -829,6 +829,7 @@
       const blogPosts = [
         {
           id: 1,
+          slug: "kwahu-hidden-jewelry",
           title: "Kwahu : The Hidden Jewelry of Ghana",
           excerpt:
             "Discover the breathtaking views, hidden attractions , culture and tradition. Learn what to pack, best times to visit, and insider tips from our expert guides.",
@@ -911,6 +912,7 @@ And for those willing to look beyond the surface, Kwahu remains one of Ghana’s
 
         {
           id: 2,
+          slug: "bruku-peak-hiking-guide",
           title: "Bruku Peak: A Hiker's Guide to Kwahu's Most Iconic Trail",
           excerpt:
             "Discover the breathtaking views and hidden trails of Bruku Peak. Learn what to pack, best times to visit, and insider tips from our expert guides.",
@@ -964,6 +966,7 @@ And for those willing to look beyond the surface, Kwahu remains one of Ghana’s
 
         {
           id: 3,
+          slug: "paragliding-kwahu-adventure",
           title: "Paragliding Over Kwahu: An Adrenaline Junkie's Paradise",
           excerpt:
             "Take to the skies and experience Kwahu from a breathtaking new perspective. We explore the thrills and safety of paragliding in our highlands.",
@@ -1005,6 +1008,7 @@ And for those willing to look beyond the surface, Kwahu remains one of Ghana’s
         },
         {
           id: 4,
+          slug: "hidden-caves-kwahu",
           title: "Hidden Caves of Kwahu: History, Mystery & Adventure",
           excerpt:
             "Explore the ancient caves scattered throughout Kwahu highlands. Learn about their historical significance and the adventures that await inside.",
@@ -1066,7 +1070,7 @@ And for those willing to look beyond the surface, Kwahu remains one of Ghana’s
             <p class="blog-card-excerpt">${post.excerpt}</p>
             <div class="blog-card-meta">
               <span>${post.date}</span>
-              <a href="javascript:void(0)" class="blog-card-readmore">Read More →</a>
+              <a href="blog.html?post=${post.slug}" class="blog-card-readmore">Read More →</a>
             </div>
           </div>
         </div>
@@ -1079,6 +1083,9 @@ And for those willing to look beyond the surface, Kwahu remains one of Ghana’s
       function viewPost(postId) {
         const post = blogPosts.find((p) => p.id === postId);
         if (!post) return;
+
+        // Update URL without page reload
+        window.history.pushState({ postId }, post.title, `blog.html?post=${post.slug}`);
 
         document.getElementById("blogGrid").style.display = "none";
         document.getElementById("blogPostView").style.display = "block";
@@ -1105,15 +1112,47 @@ And for those willing to look beyond the surface, Kwahu remains one of Ghana’s
         window.scrollTo(0, 0);
       }
 
+      // View post by slug
+      function viewPostBySlug(slug) {
+        const post = blogPosts.find((p) => p.slug === slug);
+        if (post) {
+          viewPost(post.id);
+        }
+      }
+
       // Back to blog list
       function backToBlogList() {
+        window.history.pushState(null, "Blog", "blog.html");
         document.getElementById("blogGrid").style.display = "grid";
         document.getElementById("blogPostView").style.display = "none";
         window.scrollTo(0, 0);
       }
 
       // Initialize blog grid on page load
-      window.addEventListener("DOMContentLoaded", displayBlogGrid);
+      window.addEventListener("DOMContentLoaded", function() {
+        displayBlogGrid();
+
+        // Get URL parameters
+        const params = new URLSearchParams(window.location.search);
+        const postSlug = params.get("post");
+
+        if (postSlug) {
+          viewPostBySlug(postSlug);
+        }
+      });
+
+      // Handle back button
+      window.addEventListener("popstate", function() {
+        const params = new URLSearchParams(window.location.search);
+        const postSlug = params.get("post");
+
+        if (postSlug) {
+          viewPostBySlug(postSlug);
+        } else {
+          document.getElementById("blogGrid").style.display = "grid";
+          document.getElementById("blogPostView").style.display = "none";
+        }
+      });
     </script>
 
     <script
