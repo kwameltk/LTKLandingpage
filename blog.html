@@ -27,6 +27,90 @@
     <meta name="twitter:image" content="" />
     
     <title>Blog - Let's Tour Kwahu | Travel Tips & Adventure Stories</title>
+    
+    <!-- Script to set meta tags from URL on initial load (before JS framework loads) -->
+    <script>
+      // Define blog posts data here so it's available early
+      const blogPostsData = [
+        {
+          id: 1,
+          slug: "kwahu-hidden-jewelry",
+          title: "Kwahu : The Hidden Jewelry of Ghana",
+          excerpt: "Discover the breathtaking views, hidden attractions , culture and tradition. Learn what to pack, best times to visit, and insider tips from our expert guides.",
+          image: "./kwahu_hiddenjewery.png",
+        },
+        {
+          id: 2,
+          slug: "bruku-peak-hiking-guide",
+          title: "Bruku Peak: A Hiker's Guide to Kwahu's Most Iconic Trail",
+          excerpt: "Discover the breathtaking views and hidden trails of Bruku Peak. Learn what to pack, best times to visit, and insider tips from our expert guides.",
+          image: "./bruku\ hiking.jpg",
+        },
+        {
+          id: 3,
+          slug: "paragliding-kwahu-adventure",
+          title: "Paragliding Over Kwahu: An Adrenaline Junkie's Paradise",
+          excerpt: "Take to the skies and experience Kwahu from a breathtaking new perspective. We explore the thrills and safety of paragliding in our highlands.",
+          image: "./paragliding_kwahu.jpg",
+        },
+        {
+          id: 4,
+          slug: "hidden-caves-kwahu",
+          title: "Hidden Caves of Kwahu: History, Mystery & Adventure",
+          excerpt: "Explore the ancient caves scattered throughout Kwahu highlands. Learn about their historical significance and the adventures that await inside.",
+          image: "./cave_sam.jpg",
+        }
+      ];
+
+      // Get post slug from URL and set meta tags immediately
+      function initializeMetaTags() {
+        const params = new URLSearchParams(window.location.search);
+        const postSlug = params.get("post");
+        
+        if (postSlug) {
+          const post = blogPostsData.find(p => p.slug === postSlug);
+          if (post) {
+            const domain = window.location.origin;
+            // Clean up the image path (remove backslashes)
+            let imagePath = post.image.replace(/\\/g, '');
+            const absoluteImageUrl = imagePath.startsWith('http') 
+              ? imagePath 
+              : `${domain}/${imagePath}`;
+            
+            // Update meta tags - with error checking
+            const updateMetaTag = (selector, content) => {
+              const tag = document.querySelector(selector);
+              if (tag) {
+                tag.setAttribute('content', content);
+              }
+            };
+            
+            updateMetaTag('meta[property="og:title"]', post.title);
+            updateMetaTag('meta[property="og:description"]', post.excerpt);
+            updateMetaTag('meta[property="og:image"]', absoluteImageUrl);
+            updateMetaTag('meta[property="og:url"]', `${domain}/blog.html?post=${post.slug}`);
+            
+            updateMetaTag('meta[name="twitter:title"]', post.title);
+            updateMetaTag('meta[name="twitter:description"]', post.excerpt);
+            updateMetaTag('meta[name="twitter:image"]', absoluteImageUrl);
+            
+            updateMetaTag('meta[name="description"]', post.excerpt);
+            document.title = `${post.title} | LTK Tours Blog`;
+            
+            // Log for debugging
+            console.log("Meta tags initialized for sharing:", {
+              title: post.title,
+              image: absoluteImageUrl,
+              url: `${domain}/blog.html?post=${post.slug}`
+            });
+          }
+        }
+      }
+      
+      // Run immediately on page load
+      initializeMetaTags();
+    </script>
+    
     <style>
       * {
         box-sizing: border-box;
@@ -940,7 +1024,7 @@ And for those willing to look beyond the surface, Kwahu remains one of Ghana’s
           
           <h3>Why Bruku Peak?</h3>
           <p>The Bruku Peak hiking experience offers more than just scenic views. Hikers encounter rich biodiversity, including unique flora and fauna found only in the Kwahu highlands. The journey itself is a cultural immersion, as you pass through local communities and learn about their way of life.</p>
-          <p>From a distance, the rock reveals shapes that have shaped generations of storytelling. One angle resembles Kɔti-bu), a powerful symbol of masculine life force, while a few kilometers away, the land forms what is known as the Breast Mountain, facing it in quiet balance. Together, they tell an ancient narrative of union, creation, and continuity. In Kwahu belief, Bruku stands for fertility and courage.<br><br> Those seeking the blessing of a child undertake the hike as an act of faith, strength, and hope. At the summit, a carved wooden figure representing a baby is presented to the gods and ancestors, a symbolic offering that transforms desire into prayer. The journey itself is the test, and the ritual is the promise. To hike Bruku is to walk into a living story, where land, belief, and human longing meet with reverence.</p>
+          <p>From a distance, the rock reveals shapes that have shaped generations of storytelling. One angle resembles Kɔti-boɔ, a powerful symbol of masculine life force, while a few kilometers away, the land forms what is known as the Breast Mountain, facing it in quiet balance. Together, they tell an ancient narrative of union, creation, and continuity. In Kwahu belief, Bruku stands for fertility and courage.<br><br> Those seeking the blessing of a child undertake the hike as an act of faith, strength, and hope. At the summit, a carved wooden figure representing a baby is presented to the gods and ancestors, a symbolic offering that transforms desire into prayer. The journey itself is the test, and the ritual is the promise. To hike Bruku is to walk into a living story, where land, belief, and human longing meet with reverence.</p>
           
           <h3>What to Pack</h3>
           <ul>
