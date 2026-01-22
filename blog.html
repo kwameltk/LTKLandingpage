@@ -9,22 +9,22 @@
     <meta name="keywords" content="Kwahu tours, Ghana travel blog, hiking guides, adventure tips, local culture" />
     <meta name="author" content="Let's Tour Kwahu" />
     
-    <!-- Open Graph Tags (will be updated by JavaScript) -->
+    <!-- Open Graph Tags (Static defaults - will be enhanced by JavaScript for browsers) -->
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="LTK Tours Blog" />
     <meta property="og:title" content="LTK Tours Blog - Kwahu Travel Guide & Stories" />
     <meta property="og:description" content="Discover travel tips, local stories, and adventure guides from Let's Tour Kwahu." />
-    <meta property="og:image" content="" />
+    <meta property="og:image" content="https://kwameltk.github.io/LTKLandingpage/kwahu_hiddenjewery.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:url" content="" />
+    <meta property="og:url" content="https://kwameltk.github.io/LTKLandingpage/blog.html" />
     
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@LTKTours" />
     <meta name="twitter:title" content="LTK Tours Blog - Kwahu Travel Guide & Stories" />
     <meta name="twitter:description" content="Discover travel tips, local stories, and adventure guides from Let's Tour Kwahu." />
-    <meta name="twitter:image" content="" />
+    <meta name="twitter:image" content="https://kwameltk.github.io/LTKLandingpage/kwahu_hiddenjewery.png" />
     
     <title>Blog - Let's Tour Kwahu | Travel Tips & Adventure Stories</title>
     
@@ -70,10 +70,10 @@
         if (postSlug) {
           const post = blogPostsData.find(p => p.slug === postSlug);
           if (post) {
-            // Get the domain properly
-            let domain = window.location.origin;
+            // For GitHub Pages - use raw GitHub content URL for images
+            const githubRawUrl = 'https://raw.githubusercontent.com/kwameltk/LTKLandingpage/master/';
             
-            // Build absolute image URL
+            // Build absolute image URL using GitHub raw content
             let imagePath = post.image;
             // Remove any backslashes
             imagePath = imagePath.replace(/\\/g, '');
@@ -82,9 +82,10 @@
               imagePath = imagePath.substring(2);
             }
             
+            // Use GitHub raw URL for reliable image serving to crawlers
             const absoluteImageUrl = imagePath.startsWith('http') 
               ? imagePath 
-              : domain + '/' + imagePath;
+              : githubRawUrl + imagePath;
             
             // Helper function to safely update meta tags
             const updateMetaTag = (selector, content) => {
@@ -100,11 +101,14 @@
               return false;
             };
             
+            // Construct page URL
+            const pageUrl = window.location.href;
+            
             // Update all meta tags
             updateMetaTag('meta[property="og:title"]', post.title);
             updateMetaTag('meta[property="og:description"]', post.excerpt);
             updateMetaTag('meta[property="og:image"]', absoluteImageUrl);
-            updateMetaTag('meta[property="og:url"]', domain + '/blog.html?post=' + post.slug);
+            updateMetaTag('meta[property="og:url"]', pageUrl);
             
             updateMetaTag('meta[name="twitter:title"]', post.title);
             updateMetaTag('meta[name="twitter:description"]', post.excerpt);
@@ -118,10 +122,10 @@
               console.error('Error updating title', e);
             }
             
-            // Debug log - helps verify it's working
-            console.log('✓ Meta tags initialized successfully for: ' + post.title);
+            // Debug log
+            console.log('✓ Meta tags initialized for: ' + post.title);
             console.log('  Image URL: ' + absoluteImageUrl);
-            console.log('  Page URL: ' + domain + '/blog.html?post=' + post.slug);
+            console.log('  Page URL: ' + pageUrl);
           }
         }
       }
