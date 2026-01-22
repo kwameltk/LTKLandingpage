@@ -44,7 +44,7 @@
           slug: "bruku-peak-hiking-guide",
           title: "Bruku Peak: A Hiker's Guide to Kwahu's Most Iconic Trail",
           excerpt: "Discover the breathtaking views and hidden trails of Bruku Peak. Learn what to pack, best times to visit, and insider tips from our expert guides.",
-          image: "./bruku\ hiking.jpg",
+          image: "./bruku hiking.jpg",
         },
         {
           id: 3,
@@ -70,44 +70,63 @@
         if (postSlug) {
           const post = blogPostsData.find(p => p.slug === postSlug);
           if (post) {
-            const domain = window.location.origin;
-            // Clean up the image path (remove backslashes)
-            let imagePath = post.image.replace(/\\/g, '');
+            // Get the domain properly
+            let domain = window.location.origin;
+            
+            // Build absolute image URL
+            let imagePath = post.image;
+            // Remove any backslashes
+            imagePath = imagePath.replace(/\\/g, '');
+            // Remove leading ./ if present
+            if (imagePath.startsWith('./')) {
+              imagePath = imagePath.substring(2);
+            }
+            
             const absoluteImageUrl = imagePath.startsWith('http') 
               ? imagePath 
-              : `${domain}/${imagePath}`;
+              : domain + '/' + imagePath;
             
-            // Update meta tags - with error checking
+            // Helper function to safely update meta tags
             const updateMetaTag = (selector, content) => {
-              const tag = document.querySelector(selector);
-              if (tag) {
-                tag.setAttribute('content', content);
+              try {
+                const tag = document.querySelector(selector);
+                if (tag) {
+                  tag.setAttribute('content', content);
+                  return true;
+                }
+              } catch (e) {
+                console.error('Error updating tag: ' + selector, e);
               }
+              return false;
             };
             
+            // Update all meta tags
             updateMetaTag('meta[property="og:title"]', post.title);
             updateMetaTag('meta[property="og:description"]', post.excerpt);
             updateMetaTag('meta[property="og:image"]', absoluteImageUrl);
-            updateMetaTag('meta[property="og:url"]', `${domain}/blog.html?post=${post.slug}`);
+            updateMetaTag('meta[property="og:url"]', domain + '/blog.html?post=' + post.slug);
             
             updateMetaTag('meta[name="twitter:title"]', post.title);
             updateMetaTag('meta[name="twitter:description"]', post.excerpt);
             updateMetaTag('meta[name="twitter:image"]', absoluteImageUrl);
             
             updateMetaTag('meta[name="description"]', post.excerpt);
-            document.title = `${post.title} | LTK Tours Blog`;
             
-            // Log for debugging
-            console.log("Meta tags initialized for sharing:", {
-              title: post.title,
-              image: absoluteImageUrl,
-              url: `${domain}/blog.html?post=${post.slug}`
-            });
+            try {
+              document.title = post.title + ' | LTK Tours Blog';
+            } catch (e) {
+              console.error('Error updating title', e);
+            }
+            
+            // Debug log - helps verify it's working
+            console.log('✓ Meta tags initialized successfully for: ' + post.title);
+            console.log('  Image URL: ' + absoluteImageUrl);
+            console.log('  Page URL: ' + domain + '/blog.html?post=' + post.slug);
           }
         }
       }
       
-      // Run immediately on page load
+      // Run immediately on page load (before anything else)
       initializeMetaTags();
     </script>
     
