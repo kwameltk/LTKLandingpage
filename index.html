@@ -1323,7 +1323,7 @@ footer::before {
         <tr>
           <td style="padding: 10px; border: 1px solid #ddd;">9</td>
           <td style="padding: 10px; border: 1px solid #ddd;">1,300 </td>
-          <td style="padding: 10px; border: 1px solid #ddd;">1 bus</td>
+          <td style="padding: 10px, border: 1px solid #ddd;">1 bus</td>
         </tr>
         <tr>
           <td style="padding: 10px; border: 1px solid #ddd;">10</td>
@@ -1694,7 +1694,7 @@ footer::before {
         </tr>
           <td style="padding: 10px; border: 1px solid #ddd;">LTK HOST FAMILY STAY</td>
           <td style="padding: 10px; border: 1px solid #ddd;"><a href="https://maps.app.goo.gl/E9bWnzSPKGHmGWsL9">GPS Location</a></td>
-          <td style="padding: 10px; border: 1px solid #ddd;">Obomeng Kwahu (Contact <a href="tel:+233540355740" >0540355740</a>)</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Obomeng Kwahu (Contact <a href="tel:+233540355740" >0545748380</a>)</td>
         </tr>
           <td style="padding: 10px; border: 1px solid #ddd;">WAGS HOTEL</td>
           <td style="padding: 10px; border: 1px solid #ddd;"><a href="https://maps.app.goo.gl/P33A3cntMvDKRWiQ7">GPS Location</a></td>
@@ -1948,6 +1948,33 @@ showSlide(currentSlide);
     } else {
       displayFeaturedBlog();
     }
+
+    // Update Open Graph tags
+function updateMetaTag(tagName, content) {
+  const tag = document.querySelector(`meta[property="${tagName}"]`);
+  if (tag) {
+    tag.setAttribute("content", content);
+  } else {
+    const newTag = document.createElement("meta");
+    newTag.setAttribute("property", tagName);
+    newTag.setAttribute("content", content);
+    document.head.appendChild(newTag);
+  }
+}
+
+// Example of updating Open Graph tags for a blog post
+const post = {
+  title: "Sample Blog Post",
+  excerpt: "This is a sample excerpt for the blog post.",
+  image: "./sample-image.jpg",
+};
+
+const absoluteImageUrl = new URL(post.image, window.location.origin).href;
+
+// Update Open Graph tags
+updateMetaTag("og:title", post.title);
+updateMetaTag("og:description", post.excerpt);
+updateMetaTag("og:image", absoluteImageUrl);  // This is the featured image
   </script>
   <!-- WhatsApp Chat Button -->
 <a href="https://wa.me/233545748380" class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
