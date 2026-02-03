@@ -2011,6 +2011,274 @@ updateMetaTag("og:image", absoluteImageUrl);  // This is the featured image
   color: #fff;
   box-shadow: 0 8px 32px rgba(31, 38, 135, 0.18);
 }
+
+/* Google Reviews Popup Widget */
+.reviews-popup {
+  position: fixed;
+  bottom: -400px;
+  left: 20px;
+  width: 320px;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+  z-index: 9990;
+  transition: bottom 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+.reviews-popup.show {
+  bottom: 20px;
+  animation: slideUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes slideUp {
+  from {
+    bottom: -400px;
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    bottom: 20px;
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.reviews-container {
+  padding: 0;
+  overflow: hidden;
+}
+
+.reviews-header {
+  background: linear-gradient(135deg, #264653 0%, #388c3c 100%);
+  color: #ffe082;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 14px 14px 0 0;
+}
+
+.reviews-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  border: none;
+  box-shadow: none;
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  background-clip: unset;
+  font-weight: 700;
+}
+
+.close-reviews {
+  background: none;
+  border: none;
+  color: #ffe082;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.2s, transform 0.2s;
+  padding: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-reviews:hover {
+  color: #f4a261;
+  transform: rotate(90deg);
+}
+
+.reviews-content {
+  padding: 1rem;
+  max-height: 320px;
+  overflow-y: auto;
+  background: #fafafa;
+}
+
+.reviews-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.reviews-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.reviews-content::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 2px;
+}
+
+.review-card {
+  margin-bottom: 1rem;
+  padding: 0.9rem;
+  background: white;
+  border-radius: 10px;
+  border-left: 4px solid #f4a261;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  transition: box-shadow 0.3s;
+}
+
+.review-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.review-rating {
+  font-size: 0.95rem;
+  margin-bottom: 0.6rem;
+  color: #ffc107;
+  letter-spacing: 1px;
+}
+
+.review-text {
+  font-size: 0.85rem;
+  color: #333;
+  margin: 0.6rem 0;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.review-author {
+  font-size: 0.8rem;
+  color: #666;
+  margin: 0;
+  font-weight: 600;
+  margin-top: 0.4rem;
+}
+
+.loading {
+  text-align: center;
+  color: #999;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+}
+
+.reviews-footer {
+  padding: 0.8rem 1rem;
+  border-top: 1px solid #eee;
+  background: white;
+  border-radius: 0 0 14px 14px;
+  text-align: center;
+}
+
+.view-all-btn {
+  color: #264653;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+  display: inline-block;
+}
+
+.view-all-btn:hover {
+  color: #f4a261;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+  .reviews-popup {
+    width: calc(100vw - 40px);
+    left: 20px;
+    right: 20px;
+  }
+  
+  .reviews-content {
+    max-height: 280px;
+  }
+}
+
+@media (max-width: 320px) {
+  .reviews-popup {
+    width: calc(100vw - 20px);
+    left: 10px;
+  }
+  
+  .reviews-header h3 {
+    font-size: 1rem;
+  }
+  
+  .review-text {
+    font-size: 0.8rem;
+  }
+}
 </style>
+
+<!-- Google Reviews Popup Widget -->
+<div id="google-reviews-popup" class="reviews-popup">
+  <div class="reviews-container">
+    <div class="reviews-header">
+      <h3>⭐ What Our Clients Say</h3>
+      <button class="close-reviews" onclick="closeReviews()">✕</button>
+    </div>
+    <div class="reviews-content" id="reviews-list">
+      <div class="review-card">
+        <div class="review-rating">⭐⭐⭐⭐⭐</div>
+        <p class="review-text">"Amazing tour experience! The guides were incredibly knowledgeable and friendly. Best hiking adventure in Kwahu!"</p>
+        <p class="review-author">- Ama K. • Google</p>
+      </div>
+      <div class="review-card">
+        <div class="review-rating">⭐⭐⭐⭐⭐</div>
+        <p class="review-text">"Exceptional service and breathtaking views. Highly recommended for anyone visiting the area. Will definitely return!"</p>
+        <p class="review-author">- Kofi M. • Google</p>
+      </div>
+      <div class="review-card">
+        <div class="review-rating">⭐⭐⭐⭐⭐</div>
+        <p class="review-text">"Professional guides, wonderful experience, and attention to detail. Let's Tour Kwahu exceeded all expectations!"</p>
+        <p class="review-author">- Yaa A. • Google</p>
+      </div>
+    </div>
+    <div class="reviews-footer">
+      <a href="https://www.google.com/search?q=Let%27s+Tour+Kwahu+reviews" target="_blank" class="view-all-btn">
+        View All Reviews on Google →
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Function to close reviews popup
+  function closeReviews() {
+    document.getElementById("google-reviews-popup").classList.remove("show");
+    // Store preference in localStorage (won't show again for 24 hours)
+    localStorage.setItem("reviewsHidden", Date.now());
+  }
+
+  // Function to show reviews popup
+  function showReviews() {
+    const hidden = localStorage.getItem("reviewsHidden");
+    const now = Date.now();
+    
+    // Show if never hidden or if hidden more than 24 hours ago
+    if (!hidden || (now - hidden > 86400000)) {
+      document.getElementById("google-reviews-popup").classList.add("show");
+    }
+  }
+
+  // Auto-show popup after 5 seconds
+  window.addEventListener("load", () => {
+    setTimeout(showReviews, 5000);
+  });
+
+  // Close popup when clicking outside
+  document.getElementById("google-reviews-popup").addEventListener("click", (e) => {
+    if (e.target.id === "google-reviews-popup") {
+      closeReviews();
+    }
+  });
+
+  // INSTRUCTIONS FOR INTEGRATING WITH TRUSTPILOT OR REVIEWS.IO:
+  // 
+  // 1. Sign up at Trustpilot.com or Reviews.io
+  // 2. Connect your Google Business Profile
+  // 3. Get their embed code
+  // 4. Replace the reviews-content div above with their embed code
+  // 5. Adjust the styling if needed to match your design
+  //
+  // Temporary: Using sample reviews above. Update with real ones from your Google Business Profile.
+</script>
+
 </body>
 </html>
