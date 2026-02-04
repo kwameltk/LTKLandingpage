@@ -438,7 +438,7 @@ text-align: center;
 .whatsapp-float {
   position: fixed;
   bottom: 30px;
-  right: 30px;
+  right: 20px; /* sits to the right of Book Now */
   z-index: 9999;
   background: #25D366;
   border-radius: 50%;
@@ -735,6 +735,15 @@ details[open] summary::before {
     height: 48px;
     padding: 4px;
   }
+  .booknow-float {
+    position: fixed;
+    bottom: 16px;
+    right: 84px; /* sits just left of WhatsApp */
+    padding: 8px 14px;
+    border-radius: 26px;
+    z-index: 9999;
+    font-size: 0.98rem;
+  }
 }
 
 @media (max-width: 600px) {
@@ -798,6 +807,15 @@ details[open] summary::before {
     width: 40px;
     height: 40px;
     padding: 2px;
+  }
+  .booknow-float {
+    position: fixed;
+    bottom: 8px;
+    right: 56px; /* left of WhatsApp on small screens */
+    padding: 6px 12px;
+    border-radius: 22px;
+    font-size: 0.95rem;
+    z-index: 9999;
   }
   .slide-caption {
     padding: 0.5rem 0.5rem;
