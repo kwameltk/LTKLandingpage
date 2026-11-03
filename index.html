@@ -434,6 +434,96 @@ text-align: center;
       padding: 2rem;
     }
 
+    .package-accordion .package-highlights {
+      display: grid;
+      gap: 0.75rem;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr));
+      list-style: none;
+      margin: 1rem 0;
+    }
+
+    .package-accordion .package-highlights li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      padding: 1rem;
+      border: 1px solid rgba(244, 162, 97, 0.3);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.92);
+      color: #264653;
+      box-shadow: 0 3px 12px rgba(38, 70, 83, 0.08);
+    }
+
+    .package-accordion .package-highlight-icon {
+      display: grid;
+      flex: 0 0 2.5rem;
+      width: 2.5rem;
+      height: 2.5rem;
+      place-items: center;
+      border-radius: 50%;
+      background: #e8f1e7;
+      font-size: 1.25rem;
+      line-height: 1;
+    }
+
+    .package-accordion .package-offerings {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+      gap: 1rem;
+      margin: 0 0 1.5rem;
+    }
+
+    .package-accordion .package-offering-group {
+      padding: 1.25rem;
+      border: 1px solid rgba(38, 70, 83, 0.1);
+      border-top: 3px solid #f4a261;
+      border-radius: 14px;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 246, 0.96));
+      box-shadow: 0 6px 20px rgba(38, 70, 83, 0.07);
+    }
+
+    .package-accordion .package-offering-group h4 {
+      margin: 0 0 1rem;
+      color: #264653;
+      font-size: 1.1rem;
+    }
+
+    .package-accordion .package-offering-group.is-excluded {
+      border-top-color: #c98267;
+    }
+
+    .package-accordion .package-offering-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+      gap: 0.65rem;
+      list-style: none;
+    }
+
+    .package-accordion .package-offering-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      color: #264653;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    .package-accordion .package-offering-icon {
+      display: grid;
+      flex: 0 0 1.8rem;
+      width: 1.8rem;
+      height: 1.8rem;
+      place-items: center;
+      border-radius: 50%;
+      background: #e8f1e7;
+      font-size: 1rem;
+      line-height: 1;
+    }
+
+    .package-accordion .is-excluded .package-offering-icon {
+      background: #f5e9e3;
+    }
+
    /* WhatsApp Floating Button */
 .whatsapp-float {
   position: fixed;
@@ -1190,20 +1280,40 @@ footer::before {
   <!-- Accordion Packages -->
   <section class="accordion" id="packages">
     <p><h3 class="packages">Our Packages</h3><br></p>
-    <details> 
+    <details class="package-accordion">
       <summary>Kwahu Escape (Privacy)</summary><br>
-      <h4>Includes: Sharable Accomodation | Breakfast,Lunch,Dinner | 7 Attractions | Night Life | Dedicated Tourguides | Transportation in Kwahu (Pickup and Drop off in Nkawkaw only)</h4><br>
-      <h4>Excluded: Transport from your location to Nkawkaw | Night life Drinks | Snacks | Tips to Guides etc</h4><br>
-      <p> we welcome you to a peaceful home away from home in the heart of Kwahu , a serene forest-view homestay where comfort, privacy, and cultural immersion meet.What’s more, our dedicated transport is always ready to take you on exciting tours, food runs, or evening hangouts , and bring you right back with ease. Meals are served just nearby at Kwame’s house eating area for cooking convenience, which includes a modern latrine facility. Whether you’re with friends or on your own, this is your base to explore Kwahu while feeling truly at home.
-  <ul>
-    <li>Private rooms with ensuite baths, A/C, and shared for friends</li>
-    <li>Peaceful forest view, located 1.5km (5-min drive) from town</li>
-    <li>In situations where number is eight (8) and above, some students/tourists will sleep at Kwame’s host family house with single beds and private bath at one area.</li>
-    <li>Smoking-friendly, with an on-site caretaker </li>
-    <li>Dedicated transport for tours, Tourguide, and hangouts</li>
-    <li>Meals served nearby at Kwame’s house (with latrine access)</li>
-    <li>All guests stay together in one home, safe, social, and relaxing</li>
-  </ul></p><br>
+      <div class="package-offerings">
+        <section class="package-offering-group" aria-labelledby="privacy-includes-heading">
+          <h4 id="privacy-includes-heading">Includes</h4>
+          <ul class="package-offering-list">
+            <li><span class="package-offering-icon" aria-hidden="true">🛏️</span><span>Shareable Accommodation</span></li>
+            <li><span class="package-offering-icon" aria-hidden="true">🍽️</span><span>Breakfast, Lunch &amp; Dinner</span></li>
+            <li><span class="package-offering-icon" aria-hidden="true">🎟️</span><span>7 Attractions</span></li>
+            <li><span class="package-offering-icon" aria-hidden="true">🌙</span><span>Nightlife</span></li>
+            <li><span class="package-offering-icon" aria-hidden="true">🧭</span><span>Dedicated Tour Guides</span></li>
+            <li><span class="package-offering-icon" aria-hidden="true">🚐</span><span>Kwahu Transport<br>(Pickup &amp; Drop-off in Nkawkaw only)</span></li>
+          </ul>
+        </section>
+        <section class="package-offering-group" aria-labelledby="privacy-excluded-heading">
+          <h4 id="privacy-excluded-heading">Not Included</h4>
+          <ul class="package-offering-list">
+            <li><span class="package-offering-icon" aria-hidden="true">📍</span><span>Transport to Nkawkaw</span></li>
+            <li><span class="package-offering-icon" aria-hidden="true">🥤</span><span>Nightlife Drinks</span></li>
+            <li><span class="package-offering-icon" aria-hidden="true">🍿</span><span>Snacks</span></li>
+            <li><span class="package-offering-icon" aria-hidden="true">💸</span><span>Guide Tips, etc.</span></li>
+          </ul>
+        </section>
+      </div>
+      <p> we welcome you to a peaceful home away from home in the heart of Kwahu , a serene forest-view homestay where comfort, privacy, and cultural immersion meet.What’s more, our dedicated transport is always ready to take you on exciting tours, food runs, or evening hangouts , and bring you right back with ease. Meals are served just nearby at Kwame’s house eating area for cooking convenience, which includes a modern latrine facility. Whether you’re with friends or on your own, this is your base to explore Kwahu while feeling truly at home.</p>
+      <ul class="package-highlights">
+        <li><span class="package-highlight-icon" aria-hidden="true">🛏️</span><span>Private rooms with ensuite baths, A/C, and shared for friends</span></li>
+        <li><span class="package-highlight-icon" aria-hidden="true">🌲</span><span>Peaceful forest view, located 1.5km (5-min drive) from town</span></li>
+        <li><span class="package-highlight-icon" aria-hidden="true">🏡</span><span>In situations where number is eight (8) and above, some students/tourists will sleep at Kwame’s host family house with single beds and private bath at one area.</span></li>
+        <li><span class="package-highlight-icon" aria-hidden="true">🧑‍🔧</span><span>Smoking-friendly, with an on-site caretaker</span></li>
+        <li><span class="package-highlight-icon" aria-hidden="true">🚐</span><span>Dedicated transport for tours, Tourguide, and hangouts</span></li>
+        <li><span class="package-highlight-icon" aria-hidden="true">🍽️</span><span>Meals served nearby at Kwame’s house (with latrine access)</span></li>
+        <li><span class="package-highlight-icon" aria-hidden="true">🤝</span><span>All guests stay together in one home, safe, social, and relaxing</span></li>
+      </ul><br>
         <p>NOTE : After confirming booking with our itinerary planners , there will be more information shared on food menu and tour itinerary. We take keen interest in your preferences when it comes to food and your wishes. Everything will be shared with you after booking is confirmed. <br> Reserve your Travel Date through whatsapp ; <p>
     <a href="https://wa.me/message/WT52LBO6RYBJE1" target="_blank" style="text-decoration: none; color: #25D366; font-weight: bold;">
       📲 WhatsApp Us
@@ -1277,19 +1387,40 @@ footer::before {
         <img src="./man_1.jpg"><img src="./man_2.jpg"><img src="./man_3.jpg"><img src="./man_4.jpg">
       </div>
     </details>
-    <details>
+    <details class="package-accordion">
     <summary>Kwahu Escape (Host Family)</summary><br>
-      <h4>Includes: Sharable Accomodation | Breakfast,Lunch,Dinner | 7 Attractions | Night Life | Dedicated Tourguides | Transportation in Kwahu (Pickup and Drop off in Nkawkaw only)</h4><br>
-      <h4>Excluded: Transport from your location to Nkawkaw | Night life Drinks | Snacks | Tips to Guides etc</h4><br>
+      <div class="package-offerings">
+        <section class="package-offering-group" aria-labelledby="host-family-includes-heading">
+          <h4 id="host-family-includes-heading">Includes</h4>
+          <ul class="package-offering-list">
+            <li><span class="package-offering-icon" aria-hidden="true">🛏️</span><span>Shareable Accommodation</span></li>
+            <li><span class="package-offering-icon" aria-hidden="true">🍽️</span><span>Breakfast, Lunch &amp; Dinner</span></li>
+            <li><span class="package-offering-icon" aria-hidden="true">🎟️</span><span>7 Attractions</span></li>
+            <li><span class="package-offering-icon" aria-hidden="true">🌙</span><span>Nightlife</span></li>
+            <li><span class="package-offering-icon" aria-hidden="true">🧭</span><span>Dedicated Tour Guides</span></li>
+            <li><span class="package-offering-icon" aria-hidden="true">🚐</span><span>Kwahu Transport<br>(Pickup &amp; Drop-off in Nkawkaw only)</span></li>
+          </ul>
+        </section>
+        <section class="package-offering-group is-excluded" aria-labelledby="host-family-excluded-heading">
+          <h4 id="host-family-excluded-heading">Not Included</h4>
+          <ul class="package-offering-list">
+            <li><span class="package-offering-icon" aria-hidden="true">📍</span><span>Transport to Nkawkaw</span></li>
+            <li><span class="package-offering-icon" aria-hidden="true">🥤</span><span>Nightlife Drinks</span></li>
+            <li><span class="package-offering-icon" aria-hidden="true">🍿</span><span>Snacks</span></li>
+            <li><span class="package-offering-icon" aria-hidden="true">💸</span><span>Guide Tips, etc.</span></li>
+          </ul>
+        </section>
+      </div>
       <p> Our host family package is for everyone who enjoys making a family around the world, you get to experience more of community euphoria  — a serene community homestay where Kwame , founder of the tour company stays with his family , two kids and a dog. You can play with Syd(dog) if you want to and interact with everybody in the house to learn more about the culture. walking distance to the community bars mostly on friday to get familiar with each other and talk about Ghana a bit,share a beer if you're a fan and welcome you to KWAHU .
-  <ul>
-    <li>Private Sharable rooms with two baths one inside and another outside, one room have double bed and bunk bed , Only Fan available plus rooms are connected with single door</li>
-    <li>House is located in the town , where the community lives</li>
-    <li>No Smoking in house but bar is at the corner </li>
-    <li>Dedicated transport for tours, Tourguide, and hangouts</li>
-    <li>Meals served in dining area at homestay </li>
-    <li>All guests stay together in one home — safe, social, and relaxing</li>
-  </ul></p><br>
+      </p>
+      <ul class="package-highlights">
+        <li><span class="package-highlight-icon" aria-hidden="true">🛏️</span><span>Private Sharable rooms with two baths one inside and another outside, one room have double bed and bunk bed, only fan available plus rooms are connected with single door</span></li>
+        <li><span class="package-highlight-icon" aria-hidden="true">🏘️</span><span>House is located in the town, where the community lives</span></li>
+        <li><span class="package-highlight-icon" aria-hidden="true">🚭</span><span>No Smoking in house but bar is at the corner</span></li>
+        <li><span class="package-highlight-icon" aria-hidden="true">🚐</span><span>Dedicated transport for tours, Tourguide, and hangouts</span></li>
+        <li><span class="package-highlight-icon" aria-hidden="true">🍽️</span><span>Meals served in dining area at homestay</span></li>
+        <li><span class="package-highlight-icon" aria-hidden="true">🤝</span><span>All guests stay together in one home — safe, social, and relaxing</span></li>
+      </ul><br>
         <p>NOTE : After confirming booking with our itinerary planners , there will be more information shared on food and tour itinerary. We take keen interest in your preferences when it comes to food and your wishes. Everything will be shared with you after booking is confirmed. <br>Reserve your travel date through whatsapp, Cheers <p>
     <a href="https://wa.me/message/WT52LBO6RYBJE1" target="_blank" style="text-decoration: none; color: #25D366; font-weight: bold;">
       📲 WhatsApp Us
@@ -1363,9 +1494,19 @@ footer::before {
         <img src="./bath_hostarea.jpg"><img src="./dorm_bed.jpg"><img src="./volunteer_house.jpg"><img src="./room_Volunteer.jpg">
       </div>
     </details>
-    <details>
+    <details class="package-accordion">
       <summary>Day Trips (Tailored Itinerary)</summary><br>
-      <h4>Includes: Four(4) Attractions | Entrance fees| Dedicated Tourguide | Transportation in Kwahu (Pickup and Drop off only)</h4><br>
+      <div class="package-offerings">
+        <section class="package-offering-group" aria-labelledby="day-trip-includes-heading">
+          <h4 id="day-trip-includes-heading">Includes</h4>
+          <ul class="package-offering-list">
+            <li><span class="package-offering-icon" aria-hidden="true">🏞️</span><span>4 Attractions</span></li>
+            <li><span class="package-offering-icon" aria-hidden="true">🎟️</span><span>Entrance Fees</span></li>
+            <li><span class="package-offering-icon" aria-hidden="true">🧭</span><span>Dedicated Tour Guide</span></li>
+            <li><span class="package-offering-icon" aria-hidden="true">🚐</span><span>Kwahu Transport<br>(Pickup &amp; Drop-off only)</span></li>
+          </ul>
+        </section>
+      </div>
       <p>Embark on a captivating one-day journey through the heart of Kwahu, where adventure and culture meet! Your tour begins at the <b>Nkofieho Cave</b>, a mystical hideaway steeped in history, followed by the breathtaking <b>Echo Mountain</b>, where your voice dances back to you across the serene landscape. Next, step back in time at the <b>Stone Age Park</b>, exploring fascinating relics of our ancestors, and end your day marveling at the enchanting <b>Waterfall / Proverbs from Earth</b>, a hidden gem where nature speaks in soothing cascades. This unforgettable experience is crafted for those seeking wonder in every moment.<br> <b>Please note: any additional attraction requests will incur extra fees.</b></p>
       <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
         <tr style="background-color: #f2f2f2;">
@@ -1500,9 +1641,17 @@ footer::before {
         <img src="cave_tolani.jpg"><img src="./butuase_obroni.jpg"><img src="echo_scenic.JPG"><img src="stoneage_jump.jpg">
       </div>
     </details>
-    <details>
+    <details class="package-accordion">
       <summary>Climbing & Paragliding</summary><br>
-      <h4>Includes: Dedicated Site Guide | Accommodation</h4><br>
+      <div class="package-offerings">
+        <section class="package-offering-group" aria-labelledby="climbing-includes-heading">
+          <h4 id="climbing-includes-heading">Includes</h4>
+          <ul class="package-offering-list">
+            <li><span class="package-offering-icon" aria-hidden="true">🧭</span><span>Dedicated Site Guide</span></li>
+            <li><span class="package-offering-icon" aria-hidden="true">🏡</span><span>Accommodation</span></li>
+          </ul>
+        </section>
+      </div>
       <p> <b>CLIMBING :</b> Our climbing initiatives offer an unparalleled adventure at Asubone and Krobo, presenting diverse opportunities for both intensive bouldering and exhilarating sport climbing across Ghana's stunning landscapes. We've ensured a comprehensive setup, providing essential gear like crashpads and climbing shoes, 
         along with expert local guides on-site to assist with navigation and technique, guaranteeing that climbers of all levels can immerse themselves fully in the experience; simply plan your visit, and we'll handle all necessary arrangements for an unforgettable ascent.</p><br>
       <p><b>PARAGLIDING :</b> Experience the ultimate thrill of paragliding over Kwahu Odweanoma Mountain, where our seasoned tandem pilots ensure a safe and breathtaking journey, allowing you to soar high above Ghana's picturesque scenery and witness unparalleled panoramic views. For certified solo pilots,
@@ -1575,9 +1724,21 @@ footer::before {
         <img src="./paragliding_kwahu.jpg"><img src="./climbing1.jpg"><img src="./climbing3.jpg"><img src="./paragliding-2.jpg">
       </div>
     </details>
-    <details>
+    <details class="package-accordion">
       <summary>Camping Adventures</summary><br>
-      <h4>Includes: Tent Accommodation (Single & Sharable)|Hiking|Views Of Nkawkaw|Sunset|Hidden View|Burn Fire</h4>
+      <div class="package-offerings">
+        <section class="package-offering-group" aria-labelledby="camping-includes-heading">
+          <h4 id="camping-includes-heading">Includes</h4>
+          <ul class="package-offering-list">
+            <li><span class="package-offering-icon" aria-hidden="true">⛺</span><span>Single &amp; Shareable Tent Accommodation</span></li>
+            <li><span class="package-offering-icon" aria-hidden="true">🥾</span><span>Hiking</span></li>
+            <li><span class="package-offering-icon" aria-hidden="true">🌄</span><span>Views of Nkawkaw</span></li>
+            <li><span class="package-offering-icon" aria-hidden="true">🌅</span><span>Sunset Views</span></li>
+            <li><span class="package-offering-icon" aria-hidden="true">🔭</span><span>Hidden View</span></li>
+            <li><span class="package-offering-icon" aria-hidden="true">🔥</span><span>Bonfire</span></li>
+          </ul>
+        </section>
+      </div>
       <p>Immerse yourself in nature with our unforgettable mountain peak camping experience, offering breathtaking panoramic views overlooking the vibrant Nkawkaw town as the sun sets and rises majestically on the Kwahu Ridge. Spend your evenings gathered around crackling bonfires, sharing stories under a blanket of stars, and awaken to crisp morning air ready for an invigorating hike around the mountain peak, reconnecting with nature and creating lasting memories in a truly spectacular setting.</p>
       <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
         <tr style="background-color: #f2f2f2;">
@@ -1677,9 +1838,20 @@ footer::before {
         <img src="paragliding-1.jpg"><img src="paragliding-2.jpg"><img src="img3.jpg"><img src="img4.jpg">
       </div>
     </details> -->
-    <details>
+    <details class="package-accordion">
       <summary>Hotels And Homestays</summary><br>
-      <h4>Includes: Tent Accommodation (Single & Sharable)|Hiking|Views Of Nkawkaw|Sunset|Hidden View|Burn Fire</h4>
+      <div class="package-offerings">
+        <section class="package-offering-group" aria-labelledby="stays-includes-heading">
+          <h4 id="stays-includes-heading">Stay Options</h4>
+          <ul class="package-offering-list">
+            <li><span class="package-offering-icon" aria-hidden="true">🏨</span><span>Hotel Stays</span></li>
+            <li><span class="package-offering-icon" aria-hidden="true">🏡</span><span>Private Homestays</span></li>
+            <li><span class="package-offering-icon" aria-hidden="true">🤝</span><span>Host Family Stays</span></li>
+            <li><span class="package-offering-icon" aria-hidden="true">🌍</span><span>Cultural Immersion</span></li>
+            <li><span class="package-offering-icon" aria-hidden="true">✨</span><span>Options for Every Budget</span></li>
+          </ul>
+        </section>
+      </div>
       <p>When visiting Kwahu, your stay can be perfectly tailored to your preference, from opulent comfort to immersive cultural exchange. Indulge in unparalleled luxury at the renowned <b>RockCity Hotel</b>, or experience the regal hospitality of the Royal <b>Nyarkoaba Hotel</b>, each offering exquisite amenities and comfort. For those seeking a more curated stay, Tailored Experience <b>Bricks Court Hotel</b> provides unique settings designed for personalized comfort.</p>
       <br>Alternatively, embrace our diverse <b>homestay</b> options, where you can enjoy the privacy of your own space or choose to live with a welcoming <b>host family</b>, providing an authentic opportunity to learn Ghanaian culture firsthand. Regardless of your choice, our accommodations promise unparalleled luxury, unique tailored experiences, utmost privacy, deep cultural immersion, and options to suit every budget, ensuring your visit to Kwahu is truly unforgettable.
       <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
@@ -1736,10 +1908,18 @@ footer::before {
         </tr>
           </table>
     </details>
-    <details>
+    <details class="package-accordion">
       <summary>Car Rentals</summary><br>
-      <h4>Includes: Tent Accommodation (Single & Sharable)|Hiking|Views Of Nkawkaw|Sunset|Hidden View|Burn Fire</h4>
-      <p>Experience local art and cultural storytelling.</p>
+      <div class="package-offerings">
+        <section class="package-offering-group" aria-labelledby="car-rentals-includes-heading">
+          <h4 id="car-rentals-includes-heading">Rental Options</h4>
+          <ul class="package-offering-list">
+            <li><span class="package-offering-icon" aria-hidden="true">🚘</span><span>Saloon Vehicle Rental</span></li>
+            <li><span class="package-offering-icon" aria-hidden="true">📋</span><span>View Rental Details</span></li>
+          </ul>
+        </section>
+      </div>
+      <p>Explore local vehicle rental options for your Kwahu visit.</p>
       <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
         <tr style="background-color: #f2f2f2;">
           <th style="padding: 10px; border: 1px solid #ddd;">Car Rental Type</th>
