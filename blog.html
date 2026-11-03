@@ -8,23 +8,24 @@
     <meta name="description" content="Discover travel tips, local stories, and adventure guides from Let's Tour Kwahu. Explore authentic experiences in Ghana's Kwahu highlands." />
     <meta name="keywords" content="Kwahu tours, Ghana travel blog, hiking guides, adventure tips, local culture" />
     <meta name="author" content="Let's Tour Kwahu" />
+    <link rel="canonical" href="https://www.ltktours.com/blog.html" />
     
     <!-- Open Graph Tags (Static defaults - will be enhanced by JavaScript for browsers) -->
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="LTK Tours Blog" />
     <meta property="og:title" content="LTK Tours Blog - Kwahu Travel Guide & Stories" />
     <meta property="og:description" content="Discover travel tips, local stories, and adventure guides from Let's Tour Kwahu." />
-    <meta property="og:image" content="https://kwameltk.github.io/LTKLandingpage/kwahu_hiddenjewery.png" />
+    <meta property="og:image" content="https://www.ltktours.com/kwahu_hiddenjewery.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:url" content="https://kwameltk.github.io/LTKLandingpage/blog.html" />
+    <meta property="og:url" content="https://www.ltktours.com/blog.html" />
     
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@LTKTours" />
     <meta name="twitter:title" content="LTK Tours Blog - Kwahu Travel Guide & Stories" />
     <meta name="twitter:description" content="Discover travel tips, local stories, and adventure guides from Let's Tour Kwahu." />
-    <meta name="twitter:image" content="https://kwameltk.github.io/LTKLandingpage/kwahu_hiddenjewery.png" />
+    <meta name="twitter:image" content="https://www.ltktours.com/kwahu_hiddenjewery.png" />
     
     <title>Blog - Let's Tour Kwahu | Travel Tips & Adventure Stories</title>
     
@@ -102,13 +103,17 @@
             };
             
             // Construct page URL
-            const pageUrl = window.location.href;
+            const pageUrl = `https://www.ltktours.com/blog.html?post=${encodeURIComponent(post.slug)}`;
             
             // Update all meta tags
             updateMetaTag('meta[property="og:title"]', post.title);
             updateMetaTag('meta[property="og:description"]', post.excerpt);
             updateMetaTag('meta[property="og:image"]', absoluteImageUrl);
             updateMetaTag('meta[property="og:url"]', pageUrl);
+            const canonicalTag = document.querySelector('link[rel="canonical"]');
+            if (canonicalTag) {
+              canonicalTag.setAttribute('href', pageUrl);
+            }
             
             updateMetaTag('meta[name="twitter:title"]', post.title);
             updateMetaTag('meta[name="twitter:description"]', post.excerpt);
@@ -1217,7 +1222,7 @@ And for those willing to look beyond the surface, Kwahu remains one of Ghana’s
       function updateMetaTags(post) {
         // Get the full domain URL
         const domain = window.location.origin;
-        const postUrl = `${domain}/blog.html?post=${post.slug}`;
+        const postUrl = `https://www.ltktours.com/blog.html?post=${encodeURIComponent(post.slug)}`;
         
         // Convert relative image path to absolute URL
         const absoluteImageUrl = post.featuredImage.startsWith('http') 
@@ -1232,6 +1237,10 @@ And for those willing to look beyond the surface, Kwahu remains one of Ghana’s
         updateMetaTag("og:image:height", "630");
         updateMetaTag("og:url", postUrl);
         updateMetaTag("og:type", "article");
+        const canonicalTag = document.querySelector('link[rel="canonical"]');
+        if (canonicalTag) {
+          canonicalTag.setAttribute("href", postUrl);
+        }
         
         // Update Twitter tags
         updateMetaTag("twitter:title", post.title);
